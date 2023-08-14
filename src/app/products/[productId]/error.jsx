@@ -1,6 +1,6 @@
 "use client";
-
 import Link from "next/link";
+
 const error = ({ error }) => {
   return (
     <>
