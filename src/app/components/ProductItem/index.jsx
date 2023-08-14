@@ -7,6 +7,7 @@ import QuickViewButton from "../../utils/QuickViewButton";
 import { formatPrice } from "../../utils/formatPrice";
 import CompareButton from "../../utils/CompareButton";
 import Image from "next/image";
+import { useState } from "react";
 
 const ProductItem = ({
   _id,
@@ -19,6 +20,9 @@ const ProductItem = ({
   averageRating,
   priceAfterDiscount,
 }) => {
+  const [isImageLoading, setIsImageLoading] = useState(false);
+
+  console.log(isImageLoading);
   return (
     <div className="flex group flex-col border-r p-4">
       <div className="relative overflow-hidden flex flex-col mb-2 ">
@@ -27,13 +31,18 @@ const ProductItem = ({
             <p>-{(((price - priceAfterDiscount) / price) * 100).toFixed()}%</p>
           </div>
         )}
-
+        {/* {!isImageLoading && (
+          <div className="w-full h-full bg-gray-200 animate-pulse" />
+        )} */}
         <Link
           href={`/products/${_id}`}
-          className="flex justify-center items-center mx-auto w-[150px] h-[150px]  md:w-[230px] md:h-[230px] aspect-square"
+          className="flex  justify-center items-center mx-auto w-[150px] h-[150px]  md:w-[230px] md:h-[230px] aspect-square"
         >
           <Image
-            className=" cursor-pointer object-contain group-hover:scale-110 transition-all duration-300 w-4/5 aspect-square"
+            // onLoad={() => setIsImageLoading(true)}
+            placeholder="blur"
+            blurDataURL={images[0]}
+            className="  cursor-pointer object-contain group-hover:scale-110 transition-all duration-300 w-4/5 aspect-square"
             src={images[0]}
             width={500}
             height={500}

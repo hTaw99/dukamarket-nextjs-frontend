@@ -38,7 +38,7 @@ const Email = ({ name }) => (
         </Text>
         <Section>
           <Button
-            href="https://dukamarket.vercel.app"
+            href="https://dukamarket-nextjs.vercel.app"
           >
             Get started
           </Button>
