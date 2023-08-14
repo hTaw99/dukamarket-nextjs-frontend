@@ -23,13 +23,13 @@ export const metadata = {
   referrer: "origin-when-cross-origin",
   authors: [
     { name: "Amr tawfik" },
-    { name: "Hady Tawfik", url: "https://nextjs.org" },
+    { name: "Hady Tawfik", url: "https://dukamarket-nextjs.vercel.app" },
   ],
   applicationName: "Dukamarket",
   openGraph: {
     title: "Dukamarket App",
     description: "Digital storefront on the internet",
-    url: "https://nextjs.org",
+    url: "https://dukamarket-nextjs.vercel.app",
     siteName: "Next.js",
     images: [
       {
