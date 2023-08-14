@@ -20,8 +20,8 @@ export const generateMetadata = async ({ params }) => {
   const { product } = await res.json();
 
   return {
-    title: `Dukamarket - ${product.name}`,
-    description: `${product.description}`,
+    title: `Dukamarket - ${product?.name}`,
+    description: `${product?.description}`,
   };
 };
 

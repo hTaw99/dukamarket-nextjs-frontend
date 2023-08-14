@@ -33,7 +33,7 @@ export const metadata = {
     siteName: "Next.js",
     images: [
       {
-        url: "@/assets/ogImage.png",
+        url: "https://ibb.co/wSyq0cb",
         width: 800,
         height: 600,
       },
