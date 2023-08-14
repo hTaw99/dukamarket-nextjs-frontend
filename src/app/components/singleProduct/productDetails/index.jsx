@@ -145,7 +145,7 @@ const ProductDetail = ({
           <div className=" mb-6 pb-6 border-b border-gray-200 flex flex-col gap-4">
             <div className="flex justify-between gap-4">
               <AddToCartButton
-                amount={product?.amount}
+                amount={amount}
                 color={
                   product?.colors.find((color) => color.name === colorChoosed)
                     ?._id

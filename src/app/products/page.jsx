@@ -12,7 +12,7 @@ export const metadata = {
     "Products page have several product items that may you intersted in ",
 };
 
-export const revalidate = 30;
+export const revalidate = 10;
 const Products = async () => {
   // const initialData = await getProducts({
   //   pageParam: 1,

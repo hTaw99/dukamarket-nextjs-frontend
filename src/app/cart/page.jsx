@@ -7,7 +7,7 @@ import { Hydrate, dehydrate } from "@tanstack/react-query";
 import CartClient from "../components/CartClient";
 // import { revalidateTag } from "next/cache";
 
-export const dynamic = "force-dynamic"
+// export const dynamic = "force-dynamic"
 
 const Cart = async () => {
   // const cartId = cookies().get("cart_id")?.value;
