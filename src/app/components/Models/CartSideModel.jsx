@@ -116,7 +116,7 @@ export default function CartSide() {
                                       <div className="flex justify-between text-base font-medium text-gray-900">
                                         <h3>
                                           <Link
-                                            href={`${item.product._id}`}
+                                            href={`/products/${item.product._id}`}
                                             className="line-clamp-2"
                                           >
                                             {item.product.name}
