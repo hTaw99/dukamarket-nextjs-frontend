@@ -73,7 +73,6 @@ import {
   Tailwind,
   Text,
 } from "@react-email/components";
-import * as React from "react";
 
 export const Email = ({ name }) => {
   return (
