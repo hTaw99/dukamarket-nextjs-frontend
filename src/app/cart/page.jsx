@@ -9,6 +9,7 @@ import CartClient from "../components/CartClient";
 
 const Cart = async () => {
   const cartId = cookies().get("cart_id")?.value;
+  const refreshToken = cookies().get("ishop-refresh-token")?.value;
   // async function getCart() {
   //   const res = await fetch(
   //     `http://localhost:5000/api/carts${cartId ? `?cartId=${cartId}` : ""}`,
@@ -28,7 +29,7 @@ const Cart = async () => {
   const queryClient = getQueryClient();
   await queryClient.prefetchQuery({
     queryKey: ["get-cart"],
-    queryFn: () => getCart(cartId),
+    queryFn: () => getCart(cartId || refreshToken),
   });
 
   const dehydratedState = dehydrate(queryClient);
