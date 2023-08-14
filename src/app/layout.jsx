@@ -33,7 +33,7 @@ export const metadata = {
     siteName: "Next.js",
     images: [
       {
-        url: "https://freepik.cdnpk.net/img/og-fb-logo-en.png",
+        url: "https://res.cloudinary.com/amrelgendy/image/upload/v1692019913/ogImage.png_ez8ot9.png",
         width: 800,
         height: 600,
       },
