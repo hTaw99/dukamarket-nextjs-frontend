@@ -26,21 +26,21 @@ export const metadata = {
     { name: "Hady Tawfik", url: "https://nextjs.org" },
   ],
   applicationName: "Dukamarket",
-  // openGraph: {
-  //   title: "Dukamarket App",
-  //   description: "Digital storefront on the internet",
-  //   url: "https://nextjs.org",
-  //   siteName: "Next.js",
-  //   images: [
-  //     {
-  //       url: "@/assets/logo.svg",
-  //       width: 800,
-  //       height: 600,
-  //     },
-  //   ],
-  //   locale: "en_US",
-  //   type: "website",
-  // },
+  openGraph: {
+    title: "Dukamarket App",
+    description: "Digital storefront on the internet",
+    url: "https://nextjs.org",
+    siteName: "Next.js",
+    images: [
+      {
+        url: "@/assets/ogImage.png",
+        width: 800,
+        height: 600,
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 export default async function RootLayout({ children }) {
