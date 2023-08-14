@@ -1,0 +1,10 @@
+{
+  "create-account": "create an account",
+  "signin": "sign in",
+  "email": "email address",
+  "password": "password",
+  "forgot-password": "forgot your password ?",
+  "dukamarket-account": "login to your DukaMarket account",
+  "dukamarket-account-description": "login or create an account to access your latest shopping lists within our website and DukaMarket Shopping app.",
+  "remember-me": "remember me"
+}
