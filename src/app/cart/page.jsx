@@ -26,16 +26,12 @@ const Cart = async () => {
   // const { data: cartQuery } = useGetCart();
 
   const queryClient = getQueryClient();
-  const cartQuery = await queryClient.fetchQuery({
+  await queryClient.prefetchQuery({
     queryKey: ["get-cart"],
     queryFn: () => getCart(cartId),
   });
 
   const dehydratedState = dehydrate(queryClient);
-
-  // const cartQuery = await getCart(cartId);
-
-  console.log(cartQuery);
   // #######################################################
 
   return (
