@@ -79,9 +79,9 @@ export const Email = ({ name }) => (
       <Container style={container}>
         <Section style={headingContainer}>
           <Img
-            src="https://res.cloudinary.com/amrelgendy/image/upload/v1692061792/header_oeyfbw.svg"
+            src="https://res.cloudinary.com/amrelgendy/image/upload/v1692062612/header_wt2v5s.png"
             style={img}
-          ></Img>
+          />
           {/* <Heading style={header}>
             duka<span style={span}>market</span>
           </Heading> */}
@@ -95,7 +95,12 @@ export const Email = ({ name }) => (
             <strong> discover latest offers!</strong>
           </Text>
           <Section style={btnContainer}>
-            <Button pX={12} pY={12} style={button} href="https://getkoala.com">
+            <Button
+              pX={12}
+              pY={12}
+              style={button}
+              href="https://dukamarket-nextjs.vercel.app"
+            >
               Start Shoping
             </Button>
           </Section>
