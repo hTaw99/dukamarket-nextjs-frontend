@@ -12,7 +12,7 @@ import CategoryProduct from "./CategoryProduct";
 const Category = async ({ _id, name, images }) => {
   // #################################
   const res = await fetch(
-    `${process.env.SERVER}/api/products?limit=7&sort=-sold&category=${_id}`
+    `${process.env.LOCAL}/api/products?limit=7&sort=-sold&category=${_id}`
   );
   const { products } = await res.json();
   // #################################

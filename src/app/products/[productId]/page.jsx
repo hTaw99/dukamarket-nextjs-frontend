@@ -16,7 +16,7 @@ import { axiosPrivate } from "@/apis/AppClient";
 export const generateMetadata = async ({ params }) => {
   const { productId } = params;
 
-  const res = await fetch(`${process.env.SERVER}/api/products/${productId}`);
+  const res = await fetch(`${process.env.LOCAL}/api/products/${productId}`);
   const { product } = await res.json();
 
   return {
@@ -26,7 +26,7 @@ export const generateMetadata = async ({ params }) => {
 };
 
 export const generateStaticParams = async () => {
-  const res = await fetch(`${process.env.SERVER}/api/products?limit=50`);
+  const res = await fetch(`${process.env.LOCAL}/api/products?limit=50`);
   const { products } = await res.json();
 
   return products.map((p) => ({

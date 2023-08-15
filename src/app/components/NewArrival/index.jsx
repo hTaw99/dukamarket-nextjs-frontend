@@ -15,7 +15,7 @@ const NewArrival = async () => {
 
   // #################################
   const res = await fetch(
-    `${process.env.SERVER}/api/products?sort=-createdAt&limit=5`
+    `${process.env.LOCAL}/api/products?sort=-createdAt&limit=5`
   );
   const { products } = await res.json();
   // #################################

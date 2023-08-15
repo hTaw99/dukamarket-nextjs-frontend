@@ -6,7 +6,7 @@ import ListClient from "./ListClient";
 const CategoryList = async ({ images }) => {
 
   // #################################
-  const res = await fetch(`${process.env.SERVER}/api/categories`);
+  const res = await fetch(`${process.env.LOCAL}/api/categories`);
   const categories = await res.json();
   // #################################
 

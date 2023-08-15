@@ -3,11 +3,11 @@ import React from "react";
 import Menu from "../Menu";
 
 async function getCategories() {
-  const res = await fetch(`${process.env.SERVER}/api/categories`);
+  const res = await fetch(`${process.env.LOCAL}/api/categories`);
   return res.json();
 }
 async function getBrands() {
-  const res = await fetch(`${process.env.SERVER}/api/brands`);
+  const res = await fetch(`${process.env.LOCAL}/api/brands`);
   return res.json();
 }
 
