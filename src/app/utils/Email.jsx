@@ -60,69 +60,123 @@ import {
   Body,
   Button,
   Container,
-  Column,
   Head,
-  Heading,
   Hr,
   Html,
   Img,
-  Link,
   Preview,
-  Row,
   Section,
-  Tailwind,
   Text,
 } from "@react-email/components";
 
-export const Email = ({ name }) => {
-  return (
-    <Html>
-      <Head />
-      <Preview>
-        The sales intelligence platform that helps you uncover qualified leads.
-      </Preview>
-      <Tailwind>
-        <Body className="bg-white my-auto mx-auto font-sans">
-          <Container className="border border-solid border-[#eaeaea] rounded my-[40px] mx-auto  w-[465px]">
-            <Section className="w-full rounded bg-gray-900 ">
-              <Heading className="text-center text-white">
-                duka<span className="text-red-500">market</span>
-              </Heading>
-            </Section>
-
-            <section className="p-[20px]">
-              <Heading className="text-black text-[24px] font-normal text-center p-0 my-[30px] mx-0">
-                Welcome to <strong>DukaMarket</strong>
-              </Heading>
-              <Text className="text-black text-[14px] font-semibold leading-[24px]">
-                Hello {name},
-              </Text>
-              <Text className="text-black text-[14px] leading-[24px]">
-                Welcome to DukaMarket, the sales intelligence platform that
-                helps you uncover qualified leads and close deals faster.
-              </Text>
-
-              <Section className="text-center mt-[32px] mb-[32px]">
-                <Button
-                  pX={20}
-                  pY={12}
-                  className="bg-red-500  rounded text-white text-[12px] font-semibold no-underline text-center"
-                  href="https://dukamarket-nextjs.vercel.app"
-                >
-                  Get started
-                </Button>
-              </Section>
-              <Text>
-                <span className="font-semibold">Best,</span>
-                <br />
-                The DukaMarket team
-              </Text>
-            </section>
-          </Container>
-        </Body>
-      </Tailwind>
-    </Html>
-  );
-};
+export const Email = ({ name }) => (
+  <Html>
+    <Head />
+    <Preview>
+      The sales intelligence platform that helps you uncover qualified leads.
+    </Preview>
+    <Body style={main}>
+      <Container style={container}>
+        <Section style={headingContainer}>
+          <Img
+            src="https://res.cloudinary.com/amrelgendy/image/upload/v1692061792/header_oeyfbw.svg"
+            style={img}
+          ></Img>
+          {/* <Heading style={header}>
+            duka<span style={span}>market</span>
+          </Heading> */}
+        </Section>
+        <Section style={textContainer}>
+          <Text style={paragraph}>
+            Hi <strong>{name},</strong>
+          </Text>
+          <Text style={paragraph}>
+            Welcome to DukaMarket, Digital storefront on the internet,
+            <strong> discover latest offers!</strong>
+          </Text>
+          <Section style={btnContainer}>
+            <Button pX={12} pY={12} style={button} href="https://getkoala.com">
+              Start Shoping
+            </Button>
+          </Section>
+          <Text style={paragraph}>
+            Best,
+            <br />
+            The DukaMarket team
+          </Text>
+          <Hr style={hr} />
+          <Text style={footer}>Copyright @ Hady Tawfik - 2023</Text>
+        </Section>
+      </Container>
+    </Body>
+  </Html>
+);
 
 export default Email;
+
+const main = {
+  backgroundColor: "#ffffff",
+  fontFamily:
+    '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
+};
+
+const container = {
+  borderRadius: "8px",
+  borderColor: "#cccccc",
+  border: "1px solid #cccccc",
+  margin: "56px auto",
+  width: "550px",
+  overflow: "hidden",
+};
+const headingContainer = {
+  backgroundColor: "#171e2b",
+  height: "100%",
+  borderRadius: "8px 8px 0 0",
+};
+
+const img = {
+  width: "100%",
+  objectFit: "cover",
+};
+
+const header = {
+  textAlign: "center",
+  color: "#ffffff",
+};
+
+const span = {
+  color: "#ef4443",
+};
+
+const textContainer = {
+  padding: "24px",
+};
+
+const paragraph = {
+  fontSize: "16px",
+  lineHeight: "26px",
+};
+
+const btnContainer = {
+  textAlign: "center",
+};
+
+const button = {
+  backgroundColor: "#ef4443",
+  borderRadius: "4px",
+  color: "#fff",
+  fontSize: "16px",
+  textDecoration: "none",
+  textAlign: "center",
+  display: "block",
+};
+
+const hr = {
+  borderColor: "#cccccc",
+  margin: "20px 0",
+};
+
+const footer = {
+  color: "#8898aa",
+  fontSize: "12px",
+};
