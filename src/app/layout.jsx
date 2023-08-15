@@ -1,4 +1,3 @@
-import GetCartIitially from "./components/GetCartIitially";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import PersistLogin from "./components/PersistedLogin";

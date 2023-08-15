@@ -4,7 +4,6 @@ import { useState } from "react";
 import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 import { FaCheck, FaCircle } from "react-icons/fa";
 import { useAddReview } from "@/apis/reviews";
-import { useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 
 const ReviewForm = ({ _id }) => {

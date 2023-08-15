@@ -2,10 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { useRefreshToken } from "@/apis/auth";
-import { logout, setUser, setUserOnRefresh } from "@/store/features/authSlice";
+import { logout, setUserOnRefresh } from "@/store/features/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { FaCircle } from "react-icons/fa";
-import { useGetCart } from "@/apis/cart";
 
 export default function PersistLogin({ children }) {
   const { isAuthenticated } = useSelector((state) => state.auth.user);

@@ -13,7 +13,7 @@ const SimilarProducts = async ({ productId, dehydratedState }) => {
   // });
 
   const res = await fetch(
-    `${process.env.LOCAL}/api/products/${productId}/similar?limit=3`
+    `${process.env.SERVER}/api/products/${productId}/similar?limit=3`
   );
   const { products: similarProducts } = await res.json();
 

@@ -1,5 +1,4 @@
 import { AiOutlineHeart } from "react-icons/ai";
-import { BiLayer } from "react-icons/bi";
 import Link from "next/link";
 import RatingStars from "../../utils/RatingStars";
 import AddToCartButton from "../../utils/AddToCartButton";

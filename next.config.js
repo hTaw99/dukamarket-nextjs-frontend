@@ -4,9 +4,9 @@ const nextConfig = {
     SERVER: "https://dukamarket-backend.onrender.com",
     LOCAL: "http://localhost:5000",
   },
-  experimental: {
-    serverActions: true,
-  },
+  // experimental: {
+  //   serverActions: true,
+  // },
  
   images: {
     dangerouslyAllowSVG: true,

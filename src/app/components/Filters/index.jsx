@@ -1,13 +1,11 @@
-import React from "react";
-// import { useGetBrands, useGetCategories } from "@/apis/public";
 import Menu from "../Menu";
 
 async function getCategories() {
-  const res = await fetch(`${process.env.LOCAL}/api/categories`);
+  const res = await fetch(`${process.env.SERVER}/api/categories`);
   return res.json();
 }
 async function getBrands() {
-  const res = await fetch(`${process.env.LOCAL}/api/brands`);
+  const res = await fetch(`${process.env.SERVER}/api/brands`);
   return res.json();
 }
 

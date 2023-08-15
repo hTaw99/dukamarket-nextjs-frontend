@@ -9,7 +9,6 @@ import { formatPrice } from "@/app/utils/formatPrice";
 import RatingStars from "@/app/utils/RatingStars";
 import { closeCompareModel } from "@/store/features/modelSlice";
 import Image from "next/image";
-import img from "@/assets/noCartFound.svg"
 
 const Table = () => {
   const fieldToCompare = [

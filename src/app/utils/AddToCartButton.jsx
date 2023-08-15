@@ -3,7 +3,6 @@
 import { useAddToCart } from "@/apis/cart";
 import { useEffect, useState } from "react";
 import { FaCircle } from "react-icons/fa";
-import { AiOutlineCheckCircle } from "react-icons/ai";
 import { BsCheck } from "react-icons/bs";
 const AddToCartButton = ({ amount = 1, color, productId }) => {
   const { mutate: addToCart, isLoading, isSuccess } = useAddToCart();

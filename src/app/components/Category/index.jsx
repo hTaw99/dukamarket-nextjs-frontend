@@ -1,18 +1,11 @@
-import React from "react";
 import CardItem from "../CardItem";
 import CategoryList from "./CategoryList";
 import CategoryProduct from "./CategoryProduct";
-// import { useGetProducts } from "@/apis/products";
-// import Skeleton from "../CardItem/Skeleton";
-// import getQueryClient from "@/app/getQueryClient";
-// import { getProducts } from "@/apis/products";
-// import { dehydrate } from "@tanstack/query-core";
-// import { Hydrate } from "@tanstack/react-query";
 
 const Category = async ({ _id, name, images }) => {
   // #################################
   const res = await fetch(
-    `${process.env.LOCAL}/api/products?limit=7&sort=-sold&category=${_id}`
+    `${process.env.SERVER}/api/products?limit=7&sort=-sold&category=${_id}`
   );
   const { products } = await res.json();
   // #################################

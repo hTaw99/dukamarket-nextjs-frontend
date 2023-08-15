@@ -10,34 +10,8 @@ import {
   Section,
   Text,
 } from "@react-email/components";
-import { useEffect } from "react";
-import { useRef } from "react";
-import { useState } from "react";
-
-// const formatTime = (time) => {
-//   let min = Math.floor(time / 60);
-//   let sec = Math.floor(time - min * 60);
-
-//   if (min <= 10) min = "0" + min;
-//   if (sec <= 10) sec = "0" + sec;
-
-//   return min + ":" + sec;
-// };
 
 export const Email = () => {
-  //   const [countdown, setCountdown] = useState(3 * 60);
-  //   const timerId = useRef();
-  //   useEffect(() => {
-  //     timerId.current -
-  //       setInterval(() => {
-  //         setCountdown((perv) => perv - 1);
-  //         return () => clearInterval(timerId.current);
-  //       }, 1000);
-  //   }, []);
-  //   useEffect(() => {
-  //     if (countdown < 0) clearInterval(timerId.current);
-  //   }, [countdown]);
-
   return (
     <Html>
       <Head />

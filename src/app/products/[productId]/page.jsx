@@ -1,14 +1,10 @@
 import SimilarProducts from "../../components/singleProduct/similarProducts";
 import ProductDetail from "../../components/singleProduct/productDetails";
 import ProductDescription from "../../components/singleProduct/ProductDescription";
-// import Error from "./Error";
-import SingleProductSkeleton from "@/app/components/singleProduct/Skeleton";
 import getQueryClient from "@/app/getQueryClient";
 import { dehydrate } from "@tanstack/query-core";
-import { Hydrate, useQuery } from "@tanstack/react-query";
-import { Suspense } from "react";
+import { Hydrate } from "@tanstack/react-query";
 import { getAllReviews } from "@/apis/reviews";
-import { getProducts } from "@/apis/products";
 import { axiosPrivate } from "@/apis/AppClient";
 
 // ####################################
@@ -16,7 +12,7 @@ import { axiosPrivate } from "@/apis/AppClient";
 export const generateMetadata = async ({ params }) => {
   const { productId } = params;
 
-  const res = await fetch(`${process.env.LOCAL}/api/products/${productId}`);
+  const res = await fetch(`${process.env.SERVER}/api/products/${productId}`);
   const { product } = await res.json();
 
   return {
@@ -26,7 +22,7 @@ export const generateMetadata = async ({ params }) => {
 };
 
 export const generateStaticParams = async () => {
-  const res = await fetch(`${process.env.LOCAL}/api/products?limit=50`);
+  const res = await fetch(`${process.env.SERVER}/api/products?limit=50`);
   const { products } = await res.json();
 
   return products.map((p) => ({
