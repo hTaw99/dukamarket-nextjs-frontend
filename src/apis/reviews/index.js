@@ -1,11 +1,9 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { axiosDefault, axiosPrivate } from "../AppClient";
+import { axiosDefault } from "../AppClient";
 import useAxiosPrivate from "@/hooks/useAxiosPrivate";
-import { data } from "autoprefixer";
 import { useDispatch } from "react-redux";
 import { disableEditing } from "@/store/features/reviewSlice";
 import { useRouter } from "next/navigation";
-import { addReviewRevalidation } from "@/actions/addReviewRevalidation";
 
 export const getAllReviews = async (productId) => {
   const { data } = await axiosDefault({
@@ -26,7 +24,6 @@ export const useGetAllReviews = (productId) => {
 export const useAddReview = () => {
   const queryClient = useQueryClient();
   const axiosPrivate = useAxiosPrivate();
-  const router = useRouter();
   return useMutation({
     mutationFn: async (reviewData) => {
       const { data } = await axiosPrivate({
@@ -54,7 +51,6 @@ export const useAddReview = () => {
 export const useDeleteReview = () => {
   const queryClient = useQueryClient();
   const axiosPrivate = useAxiosPrivate();
-  const router = useRouter();
   return useMutation({
     mutationFn: async (reviewId) => {
       const { data } = await axiosPrivate({
