@@ -46,14 +46,14 @@ export default function PictureModel() {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className=" transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+              <Dialog.Panel className="md:w-1/2 aspect-square transform overflow-y-scroll rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                 <Image
-                  width={500}
-                  height={500}
+                  width={400}
+                  height={400}
                   src={
                     isQuickViewModelOpen ? productToView.image : shownPicture
                   }
-                  className="w-full object-cover"
+                  className="w-full object-contain"
                 />
               </Dialog.Panel>
             </Transition.Child>

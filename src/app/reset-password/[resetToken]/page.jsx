@@ -21,9 +21,7 @@ const ResetPassword = ({ params }) => {
         <div className="bg-white p-8 py-10 md:w-4/6 lg:w-1/3 rounded-md">
           <div className="mb-6">
             <h1 className="text-2xl font-semibold mb-2">Set new password</h1>
-            <p className="text-sm">
-              Enter the email address associated with your Dukamarket account.
-            </p>
+            <p className="text-sm">Add your new password</p>
           </div>
 
           <form

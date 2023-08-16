@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
 import { useOtpVerification } from "@/apis/auth";
 import OtpInput from "@/app/utils/OtpInput";
-import  { useState } from "react";
+import { useState } from "react";
 import { FaCircle } from "react-icons/fa";
 
 const OtpVerification = () => {
@@ -28,7 +28,7 @@ const OtpVerification = () => {
           <div className="mb-6">
             <h1 className="text-2xl font-semibold mb-2">OTP Verification</h1>
             <p className="text-sm">
-              Enter the email address associated with your Dukamarket account.
+              We have sent the otp number to your email address.
             </p>
           </div>
 
@@ -39,7 +39,11 @@ const OtpVerification = () => {
             onSubmit={submitHandler}
           >
             <OtpInput value={otp} onChange={onChange} valueLength={4} />
-            {error && <div className="text-red-500 text-center">{error.response.data.message}</div>}
+            {error && (
+              <div className="text-red-500 text-center">
+                {error.response.data.message}
+              </div>
+            )}
 
             <div>
               {isLoading ? (
