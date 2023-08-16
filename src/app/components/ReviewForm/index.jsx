@@ -211,9 +211,9 @@ const ReviewForm = ({ _id }) => {
           ) : (
             <button
               type="submit"
-              className="text-white font-semibold bg-red-500 py-3 rounded-md self-stretch"
+              className="text-white capitalize font-semibold bg-red-500 py-3 rounded-md self-stretch"
             >
-              {isLoading ? <FaCircle size={10} className=" animate-bounced" /> : "Submit"} 
+             submit
             </button>
           )}
         </form>

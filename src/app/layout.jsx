@@ -16,6 +16,7 @@ import Topbar from "./components/Topbar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
+  metadataBase: new URL("https://localhost:3000"),
   title: "Dukamarket App",
   description: "Digital storefront on the internet",
   generator: "Next.js",

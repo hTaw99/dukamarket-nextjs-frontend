@@ -43,7 +43,6 @@ export const useAddReview = () => {
       // fetch(
       //   `http://localhost:3000/api?tag=newArrival&path=/products/[productId]`
       // );
-      // router.refresh();
     },
   });
 };
