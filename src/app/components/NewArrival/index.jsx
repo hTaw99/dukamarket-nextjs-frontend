@@ -1,18 +1,8 @@
-// import { Swiper, SwiperSlide } from "swiper/react";
-// import { FreeMode } from "swiper";
 import Link from "next/link";
-import CardItem from "../CardItem";
+import CardItem from "../../products/components/CardItem";
 import NewArrivalWrapper from "../Wrappers/NewArrivalWrapper";
 
 const NewArrival = async () => {
-  // const queries = {
-  //   sort: "-createdAt",
-  //   limit: 5,
-  // };
-  // const data = await getProducts({
-  //   queryKey: ["get-products", { queries }],
-  // });
-
   // #################################
   const res = await fetch(
     `${process.env.SERVER}/api/products?sort=-createdAt&limit=5`
@@ -37,43 +27,9 @@ const NewArrival = async () => {
       </div>
 
       <div className="w-full bg-gray-200">
-        <div
-          // spaceBetween={1}
-          // breakpoints={{
-          //   0: {
-          //     slidesPerView: 4,
-          //   },
-          //   465: {
-          //     slidesPerView: 2,
-          //   },
-          //   768: {
-          //     slidesPerView: 3,
-          //   },
-          //   1280: {
-          //     slidesPerView: 4,
-          //   },
-
-          //   1535: {
-          //     slidesPerView: 5,
-          //   },
-          // }}
-          // modules={[FreeMode]}
-          className="rounded-lg gap-[1px]   lg:grid lg:grid-cols-5 sm:grid sm:grid-cols-2 bg-gray-200"
-          // className="w-full"
-        >
-          {/* {isLoading
-            ? [...Array(5)].map((_, idx) => <ProductCardSkeleton key={idx} />)
-            : data?.pages
-                .flatMap((page) => page.products)
-                .map((p) => (
-                  // <SwiperSlide key={p._id}>
-                  <CardItem {...p} />
-                  // </SwiperSlide>
-                ))} */}
+        <div className="rounded-lg gap-[1px]   lg:grid lg:grid-cols-5 sm:grid sm:grid-cols-2 bg-gray-200">
           {products?.map((p) => (
-            // <SwiperSlide key={p._id}>
             <CardItem key={p._id} {...p} />
-            // </SwiperSlide>
           ))}
         </div>
       </div>

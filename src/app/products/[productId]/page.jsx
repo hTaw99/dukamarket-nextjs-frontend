@@ -1,7 +1,7 @@
 import SimilarProducts from "../../components/singleProduct/similarProducts";
 import ProductDetail from "../../components/singleProduct/productDetails";
 import ProductDescription from "../../components/singleProduct/ProductDescription";
-import getQueryClient from "@/app/getQueryClient";
+import getQueryClient from "@/app/utils/getQueryClient";
 import { dehydrate } from "@tanstack/query-core";
 import { Hydrate } from "@tanstack/react-query";
 import { getAllReviews } from "@/apis/reviews";

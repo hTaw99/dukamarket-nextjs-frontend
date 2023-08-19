@@ -1,12 +1,12 @@
 import { AiOutlineHeart } from "react-icons/ai";
 import Link from "next/link";
-import RatingStars from "../../utils/RatingStars";
-import AddToCartButton from "../../utils/AddToCartButton";
-import QuickViewButton from "../../utils/QuickViewButton";
-import { formatPrice } from "../../utils/formatPrice";
-import CompareButton from "../../utils/CompareButton";
+import RatingStars from "@/app/utils/RatingStars";
+import AddToCartButton from "@/app/utils/AddToCartButton";
+import QuickViewButton from "@/app/utils/QuickViewButton";
+import CompareButton from "@/app/utils/CompareButton";
 import Image from "next/image";
-import { useState } from "react";
+import Price from "@/app/utils/Price";
+import Sale from "@/app/utils/Sale";
 
 const ProductItem = ({
   _id,
@@ -19,26 +19,15 @@ const ProductItem = ({
   averageRating,
   priceAfterDiscount,
 }) => {
-  const [isImageLoading, setIsImageLoading] = useState(false);
-
-  console.log(isImageLoading);
   return (
     <div className="flex group flex-col border-r p-4">
       <div className="relative overflow-hidden flex flex-col mb-2 ">
-        {priceAfterDiscount && (
-          <div className="absolute z-10 text-sm px-3 text-white rounded-md bg-green-600">
-            <p>-{(((price - priceAfterDiscount) / price) * 100).toFixed()}%</p>
-          </div>
-        )}
-        {/* {!isImageLoading && (
-          <div className="w-full h-full bg-gray-200 animate-pulse" />
-        )} */}
+        <Sale priceAfterDiscount={priceAfterDiscount} price={price} />
         <Link
           href={`/products/${_id}`}
           className="flex  justify-center items-center mx-auto w-[150px] h-[150px]  md:w-[230px] md:h-[230px] aspect-square"
         >
           <Image
-            // onLoad={() => setIsImageLoading(true)}
             placeholder="blur"
             blurDataURL={images[0]}
             className="  cursor-pointer object-contain group-hover:scale-110 transition-all duration-300 w-4/5 aspect-square"
@@ -88,18 +77,7 @@ const ProductItem = ({
         </div>
       </div>
       {/* price */}
-      <div className="flex items-center gap-2 flex-wrap">
-        <h3 className="text-neutral-900 font-semibold text-base md:text-xl mb-4 flex items-start gap-1">
-          <span className="text-sm font-light">EGP</span>{" "}
-          {formatPrice(priceAfterDiscount ? priceAfterDiscount : price)}
-        </h3>
-        {priceAfterDiscount ? (
-          <h3 className="text-neutral-500  text-base md:text-xl line-through  mb-4 flex items-start gap-1">
-            {/* <span className="text-sm font-light">EGP</span>{" "} */}
-            {formatPrice(price)}
-          </h3>
-        ) : null}
-      </div>
+      <Price price={price} priceAfterDiscount={priceAfterDiscount} />
 
       {/* Buttons */}
       <div className="mt-auto flex flex-col gap-2">

@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
 import { useRegister } from "@/apis/auth";
 import { useForm } from "react-hook-form";
 import { FaCircle } from "react-icons/fa";
 import Link from "next/link";
-import Email from "../utils/Email";
+import Email from "@/app/utils/Email";
 import { render } from "@react-email/render";
 
 const Signup = () => {

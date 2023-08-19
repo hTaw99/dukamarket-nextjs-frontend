@@ -1,7 +1,8 @@
-import { formatPrice } from "@/app//utils/formatPrice";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import Price from "@/app/utils/Price";
+import Sale from "@/app/utils/Sale";
 
 const CategoryProduct = ({
   _id,
@@ -13,6 +14,7 @@ const CategoryProduct = ({
 }) => {
   return (
     <div className=" bg-white p-6">
+      <Sale priceAfterDiscount={priceAfterDiscount} price={price} />
       <Link
         href={`/products/${_id}`}
         className="flex justify-center items-center w-52 h-52  aspect-square m-auto"
@@ -27,15 +29,7 @@ const CategoryProduct = ({
       </Link>
       <div className="flex flex-col gap-2 py-6 my-6 border-b">
         <h1 className="text-blue-700 font-semibold capitalize">{name}</h1>
-        <div className="flex items-center gap-2">
-          <h3 className="text-red-500 font-semibold text-xl">
-            {" "}
-            EGP {formatPrice(priceAfterDiscount ? priceAfterDiscount : price)}
-          </h3>
-          {priceAfterDiscount && (
-            <h3 className="text-gray-500 line-through">{formatPrice(price)}</h3>
-          )}
-        </div>
+        <Price price={price} priceAfterDiscount={priceAfterDiscount} />
       </div>
       <div>{description}</div>
     </div>

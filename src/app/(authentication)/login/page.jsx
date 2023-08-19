@@ -4,7 +4,6 @@ import { useLogin } from "@/apis/auth";
 import Link from "next/link";
 import { FaCircle } from "react-icons/fa";
 import { useForm } from "react-hook-form";
-import {useSearchParams } from "next/navigation";
 
 const Login = () => {
   const {
@@ -15,8 +14,6 @@ const Login = () => {
 
   const { mutate: loginUser, error, isError, isLoading } = useLogin();
   const errorMsg = error?.response?.data?.msg;
-  const searchParams = useSearchParams();
-  console.log(searchParams)
 
 
   const onSubmit = (data) => {

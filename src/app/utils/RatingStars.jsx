@@ -1,3 +1,5 @@
+"use client";
+
 import { IoMdStar, IoMdStarHalf, IoMdStarOutline } from "react-icons/io";
 
 export default function RatingStars({ averageRating, size = 20 }) {
@@ -6,11 +8,11 @@ export default function RatingStars({ averageRating, size = 20 }) {
     return (
       <span key={i}>
         {averageRating >= i + 1 ? (
-        <IoMdStar className="w-4 h-4 md:w-5 md:h-5 " size={size} />
+          <IoMdStar className="w-4 h-4 md:w-5 md:h-5 " size={size} />
         ) : averageRating >= halfNumber ? (
-        <IoMdStarHalf className="w-4 h-4 md:w-5 md:h-5 " size={size} />
+          <IoMdStarHalf className="w-4 h-4 md:w-5 md:h-5 " size={size} />
         ) : (
-        <IoMdStarOutline className="w-4 h-4 md:w-5 md:h-5 " size={size} />
+          <IoMdStarOutline className="w-4 h-4 md:w-5 md:h-5 " size={size} />
         )}
       </span>
     );

@@ -1,4 +1,4 @@
-import CardItem from "../CardItem";
+import CardItem from "../../products/components/CardItem";
 import CategoryList from "./CategoryList";
 import CategoryProduct from "./CategoryProduct";
 

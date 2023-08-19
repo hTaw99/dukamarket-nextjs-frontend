@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import BillingAddress from "@/app/components/BillingAddress";
-import Delivery from "@/app/components/Delivery";
-import Confirmation from "@/app/components/Confirmation";
+import BillingAddress from "./components/BillingAddress";
+import Delivery from "./components/Delivery";
+import Confirmation from "./components/Confirmation";
 import { useSelector } from "react-redux";
 import { useGetCart } from "@/apis/cart";
 

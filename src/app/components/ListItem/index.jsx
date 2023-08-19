@@ -1,12 +1,17 @@
 import Image from "next/image";
-import AddToCartButton from "../../utils/AddToCartButton";
-import QuickViewButton from "../../utils/QuickViewButton";
-import { formatPrice } from "../../utils/formatPrice";
+import AddToCartButton from "@/app/utils/AddToCartButton";
+import QuickViewButton from "@/app/utils/QuickViewButton";
 import Link from "next/link";
+import Price from "@/app/utils/Price";
+import Sale from "@/app/utils/Sale";
 
 const ListItem = ({ product }) => {
   return (
     <div className="group flex  gap-4 p-4  border border-gray-300 rounded-md">
+      <Sale
+        priceAfterDiscount={product.priceAfterDiscount}
+        price={product.price}
+      />
       <Link
         href={`/products/${product?._id}`}
         className="self-center w-20 h-20 aspect-square"
@@ -33,20 +38,10 @@ const ListItem = ({ product }) => {
         </div>
 
         {/* ----------- price ------------- */}
-        <div className="flex flex-wrap items-center mb-2 gap-2">
-          <h3 className="text-gray-700  font-semibold text-sm md:text-base">
-            {formatPrice(product?.priceAfterDiscount || product?.price)}
-            <span className="font-medium"> EGP</span>{" "}
-          </h3>
-
-          {product.priceAfterDiscount && (
-            <h3 className="text-gray-500 line-through  justify-start gap-1">
-              {formatPrice(product?.price)}
-              <span className=" text-xs md:text-base"> EGP</span>{" "}
-            </h3>
-          )}
-        </div>
-        {/* ----------- price ------------- */}
+        <Price
+          priceAfterDiscount={product.priceAfterDiscount}
+          price={product.price}
+        />
 
         {/* ----------- buttons ------------- */}
         <div className="hidden  justify-between gap-2 mt-auto">

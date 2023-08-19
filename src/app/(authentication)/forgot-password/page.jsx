@@ -4,7 +4,7 @@ import { useForgotPassword } from "@/apis/auth";
 import { useSelector } from "react-redux";
 import { FaCircle } from "react-icons/fa";
 import { useForm } from "react-hook-form";
-import EmailForgotPassword from "../utils/EmailForgotPassword";
+import EmailForgotPassword from "@/app/utils/EmailForgotPassword";
 import { render } from "@react-email/components";
 
 const ForgotPassword = () => {

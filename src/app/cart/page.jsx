@@ -1,7 +1,7 @@
 "use client";
 
 import { getCart, useGetCart } from "@/apis/cart";
-import getQueryClient from "../getQueryClient";
+import getQueryClient from "../utils/getQueryClient";
 import { Hydrate, dehydrate } from "@tanstack/react-query";
 // import { cookies } from "next/headers";
 import CartClient from "../components/CartClient";
@@ -42,7 +42,7 @@ const Cart = async () => {
   return (
     <div className="container flex flex-col h-screen lg:grid lg:grid-cols-[3fr_1fr] gap-4">
       {/* <Hydrate state={dehydratedState}> */}
-        <CartClient />
+      <CartClient />
       {/* </Hydrate> */}
     </div>
   );

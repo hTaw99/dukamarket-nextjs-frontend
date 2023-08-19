@@ -1,3 +1,5 @@
+"use client"
+
 import { addProductToCompare } from "@/store/features/compareSlice";
 import { openCompareModel } from "@/store/features/modelSlice";
 import { useDispatch, useSelector } from "react-redux";

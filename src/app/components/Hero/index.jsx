@@ -48,15 +48,6 @@ const Hero = () => {
           className="h-full w-full object-cover origin-right object-right"
           alt=""
         />
-        {/* <div>
-          <h2 className="uppercase mb-4 py-1 px-4 bg-white text-[#F0567A] font-semibold inline-block text-xs sm:text-sm rounded-sm">
-            mobile
-          </h2>
-          <p className=" text-lg">DEALS 20% OFF from $690.99</p>
-        </div>
-        <div>
-          <Image width={200} src={tablets} alt="tablets" />
-        </div> */}
       </div>
 
       <div className="relative h-52 text-white overflow-hidden rounded-md">
@@ -73,28 +64,7 @@ const Hero = () => {
           className="h-full w-full object-cover origin-right object-right"
           alt=""
         />
-        {/* <div>
-          <h2 className="uppercase mb-4 py-1 px-4 bg-white text-[#F0567A] font-semibold inline-block text-xs sm:text-sm rounded-sm">
-            mobile
-          </h2>
-          <p className=" text-lg">DEALS 20% OFF from $690.99</p>
-        </div>
-        <div>
-          <Image width={200} src={tablets} alt="tablets" />
-        </div> */}
       </div>
-
-      {/* <div className="bg-[#965EE3] text-white p-6 md:px-12 lg:px-6  rounded-md flex justify-between items-center">
-        <div>
-          <h2 className="uppercase mb-4 py-1 px-4 bg-white text-[#965EE3] font-semibold inline-block text-xs sm:text-sm rounded-sm">
-            week deals
-          </h2>
-          <p className="text-lg">DEALS 20% OFF from $690.99</p>
-        </div>
-        <div>
-          <img width={200} src={tablets} alt="tablets" />
-        </div>
-      </div> */}
     </HeroWrapper>
   );
 };

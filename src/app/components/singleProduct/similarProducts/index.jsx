@@ -4,7 +4,7 @@ import ListItem from "../../ListItem";
 import { TbChevronsRight } from "react-icons/tb";
 import { getSimilarProducts, useGetSimilarProducts } from "@/apis/products";
 import ListItemSkeleton from "../../ListItem/ListItemSkeleton";
-import getQueryClient from "@/app/getQueryClient";
+import getQueryClient from "@/app/utils/getQueryClient";
 
 const SimilarProducts = async ({ productId, dehydratedState }) => {
   // const { data: similarProducts, isLoading } = useGetSimilarProducts({

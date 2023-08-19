@@ -1,7 +1,7 @@
-import FiltersComponent from "../components/Filters";
-import SelectedFiltersComponent from "../components/SelectedFilters";
-import ProductsList from "../components/ProductsList";
-import getQueryClient from "../getQueryClient";
+import FiltersComponent from "./components/Filters";
+import SelectedFiltersComponent from "./components/SelectedFilters";
+import ProductsList from "./components/ProductsList";
+import getQueryClient from "@/app/utils/getQueryClient";
 import { dehydrate } from "@tanstack/query-core";
 import { Hydrate } from "@tanstack/react-query";
 import { getProducts } from "@/apis/products";
