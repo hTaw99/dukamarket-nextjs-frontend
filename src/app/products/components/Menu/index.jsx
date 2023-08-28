@@ -19,7 +19,7 @@ const Menu = ({ name, multiple, options }) => {
     >
       <div className="h-full">
         <Listbox.Button
-          className={`hover:bg-gray-300 flex items-center gap-1 relative h-full cursor-pointer rounded-full bg-gray-100 py-2 px-6 text-left outline-none ${
+          className={`hover:bg-gray-300 flex items-center gap-1  h-full cursor-pointer rounded-full bg-gray-100 py-2 px-6 text-left outline-none ${
             filters[name] && filters[name].length > 0
               ? "border border-gray-700"
               : "border border-transparent"
@@ -41,7 +41,7 @@ const Menu = ({ name, multiple, options }) => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <Listbox.Options className="absolute z-40 py-2 mt-2 overflow-hidden border border-gray-300 rounded-md outline-none w-max bg-gray-50 sm:text-sm">
+          <Listbox.Options className="absolute grid grid-cols-2 z-40 py-2 mt-2 overflow-hidden border border-gray-300 rounded-md outline-none w-max bg-gray-50 sm:text-sm">
             {options.map((option, i) => (
               <Listbox.Option
                 key={option._id}

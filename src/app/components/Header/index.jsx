@@ -39,7 +39,11 @@ const Header = () => {
   const [isListOpen, setIsListOpen] = useState(false);
 
   // #####################################################
-  const { data: cartQuery } = useGetCart();
+  const {
+    data: cartQuery,
+    isLoading,
+    isFetching: isCartFetching,
+  } = useGetCart();
   // #####################################################
 
   const { recentlyViewedProducts } = useSelector((state) => state.history);
@@ -243,10 +247,14 @@ const Header = () => {
                 <h3 className="capitalize text-left text-neutral-400">
                   your cart
                 </h3>
-                <h2>
-                  {formatPrice(cartQuery?.cart?.totalPrice || 0)}
-                  <span className="ml-1 text-sm">EGP</span>
-                </h2>
+                {isCartFetching ? (
+                  <p className="h-5 rounded-sm w-20 animate-pulse bg-gray-700"></p>
+                ) : (
+                  <h2>
+                    {formatPrice(cartQuery?.cart?.totalPrice || 0)}
+                    <span className="ml-1 text-sm">EGP</span>
+                  </h2>
+                )}
               </div>
             </button>
           </div>
