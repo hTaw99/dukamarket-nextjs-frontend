@@ -71,7 +71,7 @@ export default function Navbar() {
                 </h1>
                 {categories?.map((cat, i) => (
                   <Link
-                    href="products"
+                    href="/products"
                     onClick={() => {
                       setIsCategoryListOpen(false);
                       dispatch(
