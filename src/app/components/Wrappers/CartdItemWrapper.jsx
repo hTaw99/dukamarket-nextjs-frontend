@@ -12,7 +12,7 @@ const CartdItemWrapper = ({ children }) => {
       transition={{ ease: "easeInOut", duration: 0.5 }}
       className="bg-white group relative flex flex-col p-6 lg:p-4  "
     >
-      {children}
+      {[children]}
     </motion.div>
   );
 };

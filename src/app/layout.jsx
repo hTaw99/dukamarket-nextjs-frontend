@@ -53,7 +53,7 @@ export default async function RootLayout({ children }) {
               <Topbar />
               <Header />
               <Navbar />
-              <div className="py-8 bg-gray-100">{children}</div>
+              <div className="py-8 bg-gray-100">{[children]}</div>
               <Footer />
               <CartSideModel />
               <QuickViewModel />

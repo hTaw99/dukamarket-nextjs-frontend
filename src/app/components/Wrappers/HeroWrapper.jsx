@@ -12,7 +12,7 @@ const HeroWrapper = ({ children }) => {
       transition={{ ease: "easeInOut", duration: 1 }}
       className="flex flex-col md:grid md:grid-cols-[1fr_1fr] lg:grid-cols-[2fr_1fr] gap-4 mb-12"
     >
-    {children}
+    {[children]}
     </motion.div>
   );
 };

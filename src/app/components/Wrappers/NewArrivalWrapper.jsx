@@ -12,7 +12,7 @@ const NewArrivalWrapper = ({ children }) => {
       transition={{ ease: "easeInOut", duration: 1 }}
       className="mb-12 border-4 bg-red-500  border-red-500 rounded-md text-white flex flex-col lg:grid lg:grid-cols-[0.5fr_2fr]"
     >
-      {children}
+      {[children]}
     </motion.div>
   );
 };
