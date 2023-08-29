@@ -9,6 +9,7 @@ import { formatPrice } from "@/app/utils/formatPrice";
 import RatingStars from "@/app/utils/RatingStars";
 import { closeCompareModel } from "@/store/features/modelSlice";
 import Image from "next/image";
+import CustomImage from "@/app/utils/CustomImage";
 
 const Table = () => {
   const fieldToCompare = [
@@ -60,10 +61,7 @@ const Table = () => {
                       <div className="p-4 rounded-md ">
                         <div className="flex gap-4 items-start">
                           <div className="w-[125px] h-[125px] flex justify-center aspect-square bg-slate-100 p-4 rounded-md ">
-                            <Image
-                              placeholder="blur"
-                              blurDataURL="../../assets/img-9.jpg"
-                              // loading="lazy"
+                            <CustomImage
                               width={100}
                               height={100}
                               src={product?.[field?.name]}

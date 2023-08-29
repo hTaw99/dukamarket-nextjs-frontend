@@ -1,9 +1,10 @@
-"use client"
+"use client";
 import useSearchQuery from "@/hooks/useQuery";
 import { formatPrice } from "@/app/utils/formatPrice";
 import { AiOutlineCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
 import { Link } from "next/link";
 import { useGetCart } from "@/apis/cart";
+import CustomImage from "@/app/utils/CustomImage";
 
 const AfterPayment = ({ params }) => {
   // #########################################
@@ -14,7 +15,6 @@ const AfterPayment = ({ params }) => {
 
   return (
     <div className=" container ">
-
       {query.get("validation") === "true" ? (
         query.get("success") === "true" ? (
           <div className="mb-8 flex items-start gap-4">
@@ -55,9 +55,10 @@ const AfterPayment = ({ params }) => {
           >
             <div className="flex justify-center items-center gap-4">
               <div className=" w-[60px] p-2 h-[60px] border rounded-md border-gray-300 flex justify-center aspect-square">
-                <img
+                <CustomImage
                   src={item.product.images[0]}
-                  alt=""
+                  width={500}
+                  height={500}
                   className="mix-blend-multiply w-[80%] aspect-square object-contain"
                 />
               </div>

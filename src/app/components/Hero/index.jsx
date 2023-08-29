@@ -2,8 +2,8 @@ import mobile from "@/assets/mobile.jpg";
 import mobile2 from "@/assets/img-11.jpg";
 import mobile3 from "@/assets/img-9.jpg";
 import Link from "next/link";
-import Image from "next/image";
 import HeroWrapper from "../Wrappers/HeroWrapper";
+import CustomImage from "@/app/utils/CustomImage";
 const Hero = () => {
   return (
     <HeroWrapper>
@@ -26,11 +26,11 @@ const Hero = () => {
             Discover Now
           </Link>
         </div>
-        <Image
+        <CustomImage
           className="object-cover  w-full h-full "
           priority={true}
+          placeholder="blur"
           src={mobile}
-          alt=""
         />
       </div>
 
@@ -42,11 +42,11 @@ const Hero = () => {
           <h1 className=" text-lg">DEALS up to 20%</h1>
           <p className="text-sm sm:text-lg mb-4">Discount 50% OFF This Week</p>
         </div>
-        <Image
+        <CustomImage
           src={mobile2}
+          placeholder="blur"
           priority={true}
-          className="h-full w-full object-cover origin-right object-right"
-          alt=""
+          className="h-full w-full object-cover origin-right object-right "
         />
       </div>
 
@@ -58,11 +58,11 @@ const Hero = () => {
           <h1 className=" text-lg">DEALS up to 20%</h1>
           <p className="text-sm sm:text-lg mb-4">Discount 50% OFF This Week</p>
         </div>
-        <Image
+        <CustomImage
           src={mobile3}
+          placeholder="blur"
           priority={true}
-          className="h-full w-full object-cover origin-right object-right"
-          alt=""
+          className="h-full w-full object-cover origin-right object-right "
         />
       </div>
     </HeroWrapper>

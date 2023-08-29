@@ -10,6 +10,7 @@ import { BiTrash } from "react-icons/bi";
 import { formatPrice } from "@/app/utils/formatPrice";
 import Image from "next/image";
 import imgCart from "@/assets/noCartFound.svg";
+import CustomImage from "@/app/utils/CustomImage";
 
 export default function CartSide() {
   const isCartSideModelOpen = useSelector(
@@ -84,11 +85,11 @@ export default function CartSide() {
                         {!cartQuery?.cart?.totalItems ||
                         cartQuery?.cart?.totalItems === 0 ? (
                           <div className="flex flex-col gap-4 justify-center items-center">
-                            <Image
+                            <CustomImage
                               src={imgCart}
                               width={500}
                               height={500}
-                              className="w-1/5 "
+                              className=" w-1/5"
                               alt="No products found in cart"
                             />
                             <h1 className="text-gray-800 text-center">

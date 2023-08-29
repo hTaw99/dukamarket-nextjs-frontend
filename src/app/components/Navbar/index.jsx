@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useGetCategories } from "@/apis/public";
+import CustomImage from "@/app/utils/CustomImage";
 
 export default function Navbar() {
   const dispatch = useDispatch();
@@ -84,10 +85,11 @@ export default function Navbar() {
                     key={cat._id}
                   >
                     <div className="w-12 h-12 rounded-sm overflow-hidden">
-                      <img
+                      <CustomImage
                         src={cat.images[0]}
                         className="h-full object-cover"
-                        alt=""
+                        width={200}
+                        height={200}
                       />
                     </div>
                     <h1 className="font-semibold capitalize">{cat.name}</h1>

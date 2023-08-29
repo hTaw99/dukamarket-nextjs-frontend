@@ -20,6 +20,7 @@ import { useGetCart } from "@/apis/cart";
 import { clearHistory } from "@/store/features/recentlyViewedProductsSlice";
 import imgLogo from "@/assets/logo.svg";
 import Image from "next/image";
+import CustomImage from "@/app/utils/CustomImage";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -133,11 +134,12 @@ const Header = () => {
                                     className={` relative p-6 pt-0 cursor-default select-none`}
                                   >
                                     <div className=" flex gap-4">
-                                      <div className="w-[60px] p-2 h-[60px] border rounded-md border-gray-300 flex justify-center aspect-square ">
-                                        <img
+                                      <div className="w-[60px] p-2 h-[60px] border rounded-md  border-gray-300 flex justify-center aspect-square ">
+                                        <CustomImage
                                           src={product.image}
-                                          alt=""
-                                          className="mix-blend-multiply w-[80%] aspect-square object-contain"
+                                          width={200}
+                                          hieght={200}
+                                          className=" mix-blend-multiply w-[80%] aspect-square object-contain"
                                         />
                                       </div>
                                       <div className="flex flex-col gap-1  text-sm ">

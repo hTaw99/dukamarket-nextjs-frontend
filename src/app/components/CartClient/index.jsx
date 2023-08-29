@@ -5,8 +5,8 @@ import Link from "next/link";
 import CartItem from "@/app/components/CartItem";
 import { formatPrice } from "@/app/utils/formatPrice";
 import { useGetCart } from "@/apis/cart";
-import Image from "next/image";
 import imgCart from "@/assets/noCartFound.svg";
+import CustomImage from "@/app/utils/CustomImage";
 
 const CartClient = () => {
   const { data: cartQuery } = useGetCart();
@@ -27,11 +27,11 @@ const CartClient = () => {
         </div>
         {!cartQuery?.cart?.totalItems || cartQuery?.cart?.totalItems === 0 ? (
           <div className="flex flex-col mt-8 gap-4 justify-center items-center">
-            <Image
+            <CustomImage
               src={imgCart}
               width={500}
               height={500}
-              className="w-1/12  "
+              className="w-1/12 "
               alt="SVG logo image"
             />
             <h1 className="text-gray-800 text-center">Your cart is empty</h1>

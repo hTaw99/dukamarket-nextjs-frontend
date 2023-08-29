@@ -1,8 +1,8 @@
 "use client";
 
 import { useRemoveItemFromCart } from "@/apis/cart";
+import CustomImage from "@/app/utils/CustomImage";
 import { formatPrice } from "@/app/utils/formatPrice";
-import Image from "next/image";
 import { BiTrash } from "react-icons/bi";
 
 const CartItem = ({ amount, product, totalProductPrice, _id }) => {
@@ -11,9 +11,8 @@ const CartItem = ({ amount, product, totalProductPrice, _id }) => {
   return (
     <div className=" p-4 pb-8 border-b border-gray-300 rounded-md flex gap-4">
       <div className="max-w-[150px] flex items-center justify-center self-start border rounded-md">
-        <Image
+        <CustomImage
           src={product.images[0]}
-          alt=""
           width={500}
           height={500}
           className="object-cover p-2 max-w-[90%]"

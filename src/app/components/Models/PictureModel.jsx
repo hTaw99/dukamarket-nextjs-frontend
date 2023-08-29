@@ -4,6 +4,7 @@ import { Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { closePictureModel } from "@/store/features/modelSlice";
 import Image from "next/image";
+import CustomImage from "@/app/utils/CustomImage";
 
 export default function PictureModel() {
   const { isPictureModelOpen, isQuickViewModelOpen } = useSelector(
@@ -12,7 +13,6 @@ export default function PictureModel() {
 
   const shownPicture = useSelector((state) => state.detail.shownPicture);
   const productToView = useSelector((state) => state.quickview.productToView);
-
 
   const dispatch = useDispatch();
 
@@ -47,13 +47,13 @@ export default function PictureModel() {
               leaveTo="opacity-0 scale-95"
             >
               <Dialog.Panel className="md:w-1/2 aspect-square transform overflow-y-scroll rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                <Image
+                <CustomImage
                   width={400}
                   height={400}
                   src={
                     isQuickViewModelOpen ? productToView.image : shownPicture
                   }
-                  className="w-full object-contain"
+                  className="w-full object-contain "
                 />
               </Dialog.Panel>
             </Transition.Child>

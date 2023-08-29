@@ -4,9 +4,9 @@ import RatingStars from "@/app/utils/RatingStars";
 import AddToCartButton from "@/app/utils/AddToCartButton";
 import QuickViewButton from "@/app/utils/QuickViewButton";
 import CompareButton from "@/app/utils/CompareButton";
-import Image from "next/image";
 import Price from "@/app/utils/Price";
 import Sale from "@/app/utils/Sale";
+import CustomImage from "@/app/utils/CustomImage";
 
 const ProductItem = ({
   _id,
@@ -27,10 +27,8 @@ const ProductItem = ({
           href={`/products/${_id}`}
           className="flex  justify-center items-center mx-auto w-[150px] h-[150px]  md:w-[230px] md:h-[230px] aspect-square"
         >
-          <Image
-            placeholder="blur"
-            blurDataURL={images[0]}
-            className="  cursor-pointer object-contain group-hover:scale-110 transition-all duration-300 w-4/5 aspect-square"
+          <CustomImage
+            className="mix-blend-multiply opacity-0 cursor-pointer object-contain group-hover:scale-110 transition-all duration-300 w-4/5 aspect-square"
             src={images[0]}
             width={500}
             height={500}

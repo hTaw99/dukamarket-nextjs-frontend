@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Price from "@/app/utils/Price";
 import Sale from "@/app/utils/Sale";
+import CustomImage from "@/app/utils/CustomImage";
 
 const CategoryProduct = ({
   _id,
@@ -19,10 +20,9 @@ const CategoryProduct = ({
         href={`/products/${_id}`}
         className="flex justify-center items-center w-52 h-52  aspect-square m-auto"
       >
-        <Image
-          className=" w-4/5 aspect-square cursor-pointer hover:scale-110 transition-all duration-300"
+        <CustomImage
+          className="w-4/5 aspect-square cursor-pointer hover:scale-110"
           src={images[0]}
-          alt=""
           width={500}
           height={500}
         />

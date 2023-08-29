@@ -2,9 +2,9 @@ import Link from "next/link";
 import { FiChevronsRight } from "react-icons/fi";
 import Image from "next/image";
 import ListClient from "./ListClient";
+import CustomImage from "@/app/utils/CustomImage";
 
 const CategoryList = async ({ images }) => {
-
   // #################################
   const res = await fetch(`${process.env.SERVER}/api/categories`);
   const categories = await res.json();
@@ -13,8 +13,8 @@ const CategoryList = async ({ images }) => {
   return (
     <div className="bg-white flex flex-col border-r">
       <div className="overflow-hidden h-48 flex justify-center  items-center ">
-        <Image
-          className="object-cover h-full w-full"
+        <CustomImage
+          className="object-cover h-full w-full "
           width={500}
           height={500}
           src={images?.[0]}

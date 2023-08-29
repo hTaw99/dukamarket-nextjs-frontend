@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,13 +9,15 @@ import {
 import RatingStars from "@/app/utils/RatingStars";
 import AddToCartButton from "@/app/utils/AddToCartButton";
 import { formatPrice } from "@/app/utils/formatPrice";
+import CustomImage from "@/app/utils/CustomImage";
 
 const QuickViewModel = () => {
-  const { isQuickViewModelOpen, isPictureModelOpen } = useSelector((state) => state.model);
+  const { isQuickViewModelOpen, isPictureModelOpen } = useSelector(
+    (state) => state.model
+  );
   const dispatch = useDispatch();
   const ref = useRef();
 
-  
   const productToView = useSelector((state) => state.quickview.productToView);
 
   const [amount, setAmount] = useState(1);
@@ -27,8 +29,6 @@ const QuickViewModel = () => {
     setColorChoosed(productToView?.colors?.[0]?.name);
     setAmount(1);
   }, [productToView?.colors?.[0]?.name]);
-
-
 
   return (
     <Transition appear show={isQuickViewModelOpen} as={Fragment}>
@@ -70,8 +70,10 @@ const QuickViewModel = () => {
                     className=" p-4 w-full min-h-[150px] flex justify-center items-cneter border border-gray-300 rounded-md overflow-hidden cursor-zoom-in "
                     onClick={() => dispatch(openPictureModel())}
                   >
-                    <img
+                    <CustomImage
                       className="w-1/2 md:w-1/2 object-contain"
+                      width={500}
+                      height={500}
                       src={productToView.image}
                       alt=""
                     />

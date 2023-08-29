@@ -3,6 +3,7 @@ import { setStep } from "@/store/features/checkoutSlice";
 import { formatPrice } from "@/app/utils/formatPrice";
 import { BsTruck, BsCash, BsCheck } from "react-icons/bs";
 import { useDispatch } from "react-redux";
+import CustomImage from "@/app/utils/CustomImage";
 
 const Delivery = ({ cart }) => {
   const dispatch = useDispatch();
@@ -92,9 +93,10 @@ const Delivery = ({ cart }) => {
               >
                 <div className="flex justify-center items-center gap-4">
                   <div className=" w-[60px] p-2 h-[60px] border rounded-md border-gray-300 flex justify-center aspect-square">
-                    <img
+                    <CustomImage
                       src={item.product.images[0]}
-                      alt=""
+                      width={100}
+                      height={100}
                       className="mix-blend-multiply w-[80%] aspect-square object-contain"
                     />
                   </div>

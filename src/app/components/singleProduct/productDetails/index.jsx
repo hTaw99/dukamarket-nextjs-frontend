@@ -14,6 +14,7 @@ import { formatPrice } from "@/app/utils/formatPrice";
 import Image from "next/image";
 import { setAsViewedProduct } from "@/store/features/recentlyViewedProductsSlice";
 import { useGetSingleProduct } from "@/apis/products";
+import CustomImage from "@/app/utils/CustomImage";
 
 const ProductDetail = ({
   _id,
@@ -72,7 +73,7 @@ const ProductDetail = ({
               className=" border p-4 border-gray-300 flex justify-center items-center w-full h-48 lg:h-full aspect-square rounded-md overflow-hidden cursor-zoom-in "
               onClick={() => dispatch(openPictureModel())}
             >
-              <Image
+              <CustomImage
                 className="w-4/5 h-4/5 aspect-square object-contain"
                 width={500}
                 height={500}
@@ -94,14 +95,13 @@ const ProductDetail = ({
                     dispatch(setShownPicture(image));
                   }}
                 >
-                  <Image
+                  <CustomImage
                     width={100}
                     height={100}
-                    placeholder="blur"
-                    blurDataURL="../../../../assets/img-9.jpg"
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-contain "
                     src={image}
                     alt=""
+                    
                   />
                 </div>
               ))}

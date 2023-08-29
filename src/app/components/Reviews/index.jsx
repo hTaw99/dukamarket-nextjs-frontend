@@ -9,6 +9,7 @@ import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import Image from "next/image";
 import imgReview from "@/assets/noReviewsFound.svg";
 import { useGetSingleProduct } from "@/apis/products";
+import CustomImage from "@/app/utils/CustomImage";
 
 const Reviews = ({ _id }) => {
   const { data } = useGetAllReviews(_id);
@@ -87,11 +88,11 @@ const Reviews = ({ _id }) => {
         {/* {isLoading && <h1>Loading...</h1>} */}
         {data?.reviews.length === 0 ? (
           <div className="flex  flex-col h-full gap-4 justify-center items-center">
-            <Image
+            <CustomImage
               width={500}
               height={500}
               src={imgReview}
-              className="w-[8%]  "
+              className="w-[8%]"
               alt="No reviews on this product"
             />
             <h1 className="text-gray-800 text-center">

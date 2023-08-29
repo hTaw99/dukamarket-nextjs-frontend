@@ -6,7 +6,7 @@ const NotFound = () => {
   return (
     <div className="h-screen flex flex-col justify-center items-center">
       <div className="w-1/4">
-        <Image src={notFoundImage} alt="" />
+        <Image src={notFoundImage}/>
       </div>
       <div className="flex flex-col justify-center items-center">
         <h1 className="text-4xl text-gray-800 font-semibold mb-2">

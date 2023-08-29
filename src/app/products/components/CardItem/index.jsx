@@ -6,10 +6,10 @@ import AddToCartButton from "@/app/utils/AddToCartButton";
 import QuickViewButton from "@/app/utils/QuickViewButton";
 import CompareButton from "@/app/utils/CompareButton";
 import RatingStars from "@/app/utils/RatingStars";
-import Image from "next/image";
 import CartdItemWrapper from "../../../components/Wrappers/CartdItemWrapper";
 import Price from "@/app/utils/Price";
 import Sale from "@/app/utils/Sale";
+import CustomImage from "@/app/utils/CustomImage";
 
 const CardItem = ({
   name,
@@ -33,8 +33,8 @@ const CardItem = ({
           href={`products/${_id}`}
           className=" flex justify-center items-center w-40 h-40 md:w-48 md:h-48 aspect-square "
         >
-          <Image
-            className="p-2 w-4/5 cursor-pointer aspect-square object-contain group-hover:scale-110 transition-all duration-300"
+          <CustomImage
+            className="p-2 w-4/5 cursor-pointer aspect-square object-contain group-hover:scale-110"
             src={images[0]}
             alt="product-img"
             width={300}

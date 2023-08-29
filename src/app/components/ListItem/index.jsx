@@ -1,9 +1,9 @@
-import Image from "next/image";
 import AddToCartButton from "@/app/utils/AddToCartButton";
 import QuickViewButton from "@/app/utils/QuickViewButton";
 import Link from "next/link";
 import Price from "@/app/utils/Price";
 import Sale from "@/app/utils/Sale";
+import CustomImage from "@/app/utils/CustomImage";
 
 const ListItem = ({ product }) => {
   return (
@@ -16,10 +16,10 @@ const ListItem = ({ product }) => {
         href={`/products/${product?._id}`}
         className="self-center w-20 h-20 aspect-square"
       >
-        <Image
+        <CustomImage
           width={100}
           height={100}
-          className="w-full aspect-square h-full object-contain group-hover:scale-110 transition-all duration-300"
+          className=" w-full aspect-square h-full object-contain group-hover:scale-110"
           src={product?.images[0]}
           alt=""
         />
