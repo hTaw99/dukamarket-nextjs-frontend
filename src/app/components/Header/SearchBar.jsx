@@ -2,6 +2,7 @@ import { useGetProducts } from "@/apis/products";
 import CustomImage from "@/app/utils/CustomImage";
 import { formatPrice } from "@/app/utils/formatPrice";
 import useDebounce from "@/hooks/useDebounce";
+import { clearHistory } from "@/store/features/recentlyViewedProductsSlice";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
