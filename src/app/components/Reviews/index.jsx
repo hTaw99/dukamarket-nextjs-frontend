@@ -6,17 +6,20 @@ import { getProduct } from "@/apis/products";
 import CustomImage from "@/app/utils/CustomImage";
 import ReviewFormWrapper from "../ReviewFormWrapper";
 
-const Reviews = async ({ _id }) => {
-  const resReviews = await fetch(
-    `${process.env.SERVER}/api/reviews?product=${_id}`,
-    { next: { tags: ["reviews"] } }
-  );
-  const { reviews } = await resReviews.json();
+const Reviews = async ({ reviews, product, productId }) => {
+  // ###################################################
+  // const resReviews = await fetch(
+  //   `${process.env.SERVER}/api/reviews?product=${_id}`,
+  //   { next: { tags: ["reviews"] } }
+  // );
+  // const { reviews } = await resReviews.json();
 
-  const resProduct = await fetch(`${process.env.SERVER}/api/products/${_id}`, {
-    next: { tags: ["singleProduct"] },
-  });
-  const { product } = await resProduct.json();
+  // const resProduct = await fetch(`${process.env.SERVER}/api/products/${_id}`, {
+  //   next: { tags: ["singleProduct"] },
+  // });
+  // const { product } = await resProduct.json();
+  // ###################################################
+
   // const { reviews } = await getAllReviews(_id);
   // const { product } = await getProduct(_id);
   // const { data } = useGetAllReviews(_id);
@@ -45,9 +48,11 @@ const Reviews = async ({ _id }) => {
                 {product?.numReviews} Reviews
               </h3>
             </div>
+
             <div className="flex  text-yellow-500 ">
               <RatingStars size={24} averageRating={product?.averageRating} />
             </div>
+            
           </div>
           {Array.from({ length: 5 }, (el, i) => (
             <div key={i} className="flex gap-4 items-center mb-2">
@@ -76,7 +81,7 @@ const Reviews = async ({ _id }) => {
             Share your thoughts with other customers
           </p>
         </div>
-        <ReviewFormWrapper _id={_id} />
+        <ReviewFormWrapper productId={productId} />
       </div>
 
       <div className="flex flex-col gap-6">
@@ -96,7 +101,7 @@ const Reviews = async ({ _id }) => {
           </div>
         ) : (
           reviews?.map((review) => (
-            <Comment {...review} key={review._id} productId={_id} />
+            <Comment {...review} key={review._id} productId={productId} />
           ))
         )}
       </div>

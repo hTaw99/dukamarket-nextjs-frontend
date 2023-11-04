@@ -8,8 +8,6 @@ const Confirmation = () => {
   const dispatch = useDispatch();
   const { mutate: pay, isPending } = usePay();
 
-  console.log("hellow from confirmation");
-
   return (
     <>
       <div className="text-gray-700 p-2 rounded-md bg-gray-100">

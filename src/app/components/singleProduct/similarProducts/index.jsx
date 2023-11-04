@@ -6,7 +6,7 @@ import { getSimilarProducts, useGetSimilarProducts } from "@/apis/products";
 import ListItemSkeleton from "../../ListItem/ListItemSkeleton";
 import getQueryClient from "@/app/utils/getQueryClient";
 
-const SimilarProducts = async ({ productId, dehydratedState }) => {
+const SimilarProducts = async ({ productId }) => {
   // const { data: similarProducts, isPending } = useGetSimilarProducts({
   //   productId,
   //   limit: 3,

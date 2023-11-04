@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useEffect } from "react";
 import { axiosPrivate } from "@/apis/AppClient";
@@ -30,8 +30,6 @@ export default function useAxiosPrivate() {
           // ||
           // (error.response?.status === 404 && !prevReq?.sent)
         ) {
-
-          console.log("hey");
           prevReq.sent = true;
           const data = await refreshTokenFn();
           prevReq.headers.Authorization = `Bearer ${data.accessToken}`;

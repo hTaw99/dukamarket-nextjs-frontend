@@ -7,8 +7,9 @@ import { useAddReview } from "@/apis/reviews";
 import { useForm } from "react-hook-form";
 import { revalidateAction } from "@/actions/revalidateAction";
 
-const ReviewForm = ({ _id }) => {
-  const [isPendingTransition, startTransition] = useTransition();
+const ReviewForm = ({ productId }) => {
+  // const [isPendingTransition, startTransition] = useTransition();
+  // console.log(isPendingTransition);
   const [hover, setHover] = useState(null);
   const [rating, setRating] = useState(null);
 
@@ -23,7 +24,8 @@ const ReviewForm = ({ _id }) => {
     error,
     isPending,
   } = useAddReview({
-    onSettled: () => startTransition(() => revalidateAction(_id)),
+    // onSettled: () => startTransition(() => revalidateAction(productId)),
+    onSettled: () => revalidateAction(productId),
   });
   const regPattern = new RegExp("true");
 
@@ -33,7 +35,7 @@ const ReviewForm = ({ _id }) => {
       comment: data.reviewComment,
       title: data.reviewTitle,
       isRecommended: regPattern.test(data.recommended),
-      product: _id,
+      product: productId,
     });
   };
 
@@ -219,7 +221,7 @@ const ReviewForm = ({ _id }) => {
           ) : (
             <button
               // formAction={revalidateAction}
-              // onClick={() => startTransition(() => revalidateAction(_id))}
+              // onClick={() => startTransition(() => revalidateAction(productId))}
               type="submit"
               className="text-white capitalize font-semibold bg-red-500 py-3 rounded-md self-stretch"
             >

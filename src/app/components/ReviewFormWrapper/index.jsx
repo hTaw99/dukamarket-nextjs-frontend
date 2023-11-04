@@ -4,14 +4,14 @@ import React from "react";
 import { useSelector } from "react-redux";
 import ReviewForm from "../ReviewForm";
 
-export default function ReviewFormWrapper({ _id }) {
+export default function ReviewFormWrapper({ productId }) {
   const { isAuthenticated } = useSelector((state) => state.auth.user);
   const router = useRouter();
   const pathname = usePathname();
   return (
     <>
       {isAuthenticated ? (
-        <ReviewForm _id={_id} />
+        <ReviewForm productId={productId} />
       ) : (
         <button
           onClick={() => router.push(`/login?from=${pathname}`)}

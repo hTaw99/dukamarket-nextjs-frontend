@@ -1,5 +1,3 @@
-"use client";
-
 import { getCart, useGetCart } from "@/apis/cart";
 import getQueryClient from "../utils/getQueryClient";
 import { Hydrate, dehydrate } from "@tanstack/react-query";

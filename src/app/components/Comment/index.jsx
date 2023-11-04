@@ -25,7 +25,6 @@ const Comment = ({
   _id,
   productId,
 }) => {
-  console.log(_id);
   const [isPendingTransition, startTransition] = useTransition();
   const date = createdAt.split("T");
   const { name } = useSelector((state) => state.auth.user);

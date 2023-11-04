@@ -34,7 +34,6 @@ export const useCreateAddress = () => {
     onSuccess: (addressData) => {
       dispatch(setStep(2));
       dispatch(setMyAddress(addressData.address));
-      console.log(addressData.address);
       queryClient.invalidateQueries({ queryKey: ["address"] });
     },
   });

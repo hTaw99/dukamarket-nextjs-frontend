@@ -18,7 +18,6 @@ export const usePay = () => {
     },
     onError: (err) => {},
     onSuccess: (data) => {
-      console.log(data)
       window.location.href = data.paymentLink;
     },
   });
