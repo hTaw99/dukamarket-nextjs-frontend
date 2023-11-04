@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 import { revalidateAction } from "@/actions/revalidateAction";
 
 const ReviewForm = ({ productId }) => {
-  // const [isPendingTransition, startTransition] = useTransition();
+  const [isPendingTransition, startTransition] = useTransition();
   // console.log(isPendingTransition);
   const [hover, setHover] = useState(null);
   const [rating, setRating] = useState(null);
@@ -24,8 +24,8 @@ const ReviewForm = ({ productId }) => {
     error,
     isPending,
   } = useAddReview({
-    // onSettled: () => startTransition(() => revalidateAction(productId)),
-    onSettled: () => revalidateAction(productId),
+    onSettled: () => startTransition(() => revalidateAction(productId)),
+    // onSettled: () => revalidateAction(productId),
   });
   const regPattern = new RegExp("true");
 
