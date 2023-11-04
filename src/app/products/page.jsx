@@ -2,8 +2,8 @@ import FiltersComponent from "./components/Filters";
 import SelectedFiltersComponent from "./components/SelectedFilters";
 import ProductsList from "./components/ProductsList";
 import getQueryClient from "@/app/utils/getQueryClient";
-import { dehydrate } from "@tanstack/query-core";
-import { Hydrate } from "@tanstack/react-query";
+import { dehydrate } from "@tanstack/react-query";
+import { HydrationBoundary } from "@tanstack/react-query";
 import { getProducts } from "@/apis/products";
 
 export const metadata = {
@@ -26,16 +26,16 @@ const Products = async () => {
   // });
 
   const queryClient = getQueryClient();
-  await queryClient.prefetchInfiniteQuery(
-    [
+  await queryClient.prefetchInfiniteQuery({
+    queryKey: [
       "get-products",
       {
         filters: { sort: "", category: [], brand: [] },
         queries: { limit: 12 },
       },
     ],
-    getProducts
-  );
+    queryFn: getProducts,
+  });
   const dehydratedState = dehydrate(queryClient);
 
   return (
@@ -48,9 +48,9 @@ const Products = async () => {
         <SelectedFiltersComponent />
       </div>
 
-      <Hydrate state={dehydratedState}>
+      <HydrationBoundary state={dehydratedState}>
         <ProductsList />
-      </Hydrate>
+      </HydrationBoundary>
     </div>
   );
 };

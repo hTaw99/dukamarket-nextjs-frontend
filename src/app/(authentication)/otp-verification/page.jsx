@@ -12,7 +12,7 @@ const OtpVerification = () => {
     setOtp(value);
   };
 
-  const { mutate: verifyOtp, isLoading, error } = useOtpVerification();
+  const { mutate: verifyOtp, isPending, error } = useOtpVerification();
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -46,7 +46,7 @@ const OtpVerification = () => {
             )}
 
             <div>
-              {isLoading ? (
+              {isPending ? (
                 <div className="flex justify-center items-center w-full">
                   <FaCircle size={10} className=" animate-bounced" />
                 </div>

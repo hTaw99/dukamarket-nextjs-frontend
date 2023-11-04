@@ -13,8 +13,8 @@ export default async function FiltersComponent() {
   const categories = await getCategories();
   const brands = await getBrands();
 
-  // const { data: categories, isLoading: loadCategories } = useGetCategories();
-  // const { data: brands, isLoading: loadBrands } = useGetBrands();
+  // const { data: categories, isPending: loadCategories } = useGetCategories();
+  // const { data: brands, isPending: loadBrands } = useGetBrands();
   // if (loadCategories || loadBrands) return <div>Loading ...</div>;
   return (
     <div className="flex gap-2 ">

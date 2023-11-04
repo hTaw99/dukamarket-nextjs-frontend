@@ -1,12 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useTransition } from "react";
 import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 import { FaCheck, FaCircle } from "react-icons/fa";
 import { useAddReview } from "@/apis/reviews";
 import { useForm } from "react-hook-form";
+import { revalidateAction } from "@/actions/revalidateAction";
 
 const ReviewForm = ({ _id }) => {
+  const [isPendingTransition, startTransition] = useTransition();
   const [hover, setHover] = useState(null);
   const [rating, setRating] = useState(null);
 
@@ -16,7 +18,13 @@ const ReviewForm = ({ _id }) => {
     formState: { errors },
   } = useForm();
 
-  const { mutate: addReview, error, isLoading } = useAddReview();
+  const {
+    mutate: addReview,
+    error,
+    isPending,
+  } = useAddReview({
+    onSettled: () => startTransition(() => revalidateAction(_id)),
+  });
   const regPattern = new RegExp("true");
 
   const onSubmit = (data) => {
@@ -204,16 +212,18 @@ const ReviewForm = ({ _id }) => {
             {errors.acceptTerms?.message}
           </span>
 
-          {isLoading ? (
+          {isPending ? (
             <div className="flex justify-center items-center w-full">
               <FaCircle size={10} className=" animate-bounced" />
             </div>
           ) : (
             <button
+              // formAction={revalidateAction}
+              // onClick={() => startTransition(() => revalidateAction(_id))}
               type="submit"
               className="text-white capitalize font-semibold bg-red-500 py-3 rounded-md self-stretch"
             >
-             submit
+              submit
             </button>
           )}
         </form>

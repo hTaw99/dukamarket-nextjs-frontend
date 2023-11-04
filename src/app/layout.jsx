@@ -48,12 +48,12 @@ export default async function RootLayout({ children }) {
     <html lang="en">
       <QueryClientProviderWrapper>
         <ProviderWrapper>
-          <body suppressHydrationWarning={true} className={inter.className}>
+          <body className={inter.className}>
             <PersistLogin>
               <Topbar />
               <Header />
               <Navbar />
-              <div className="py-8 bg-gray-100">{[children]}</div>
+              <div className="py-8 bg-gray-100">{children}</div>
               <Footer />
               <CartSideModel />
               <QuickViewModel />

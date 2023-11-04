@@ -16,17 +16,18 @@ const ProductsList = () => {
     error,
     fetchNextPage,
     hasNextPage,
-    isLoading,
+    isPending,
     isFetchingNextPage,
   } = useGetProducts({
     filters,
     queries: { limit: 12 },
   });
 
+
   return (
     <>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-8">
-        {isLoading
+        {isPending
           ? Array.from({ length: 12 }).map((_, idx) => (
               <ProductCardSkeleton key={idx} />
             ))

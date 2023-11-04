@@ -13,7 +13,7 @@ const ForgotPassword = () => {
     register,
     formState: { errors },
   } = useForm();
-  const { mutate: forgotPassword, isLoading, error } = useForgotPassword();
+  const { mutate: forgotPassword, isPending, error } = useForgotPassword();
   const { isAuthenticated } = useSelector((state) => state.auth.user);
 
   const onSubmit = (data) => {
@@ -25,7 +25,7 @@ const ForgotPassword = () => {
   return (
     <div className="container h-screen ">
       <div className=" xl:p-16 flex justify-center items-center   rounded-md">
-      {/* <EmailForgotPassword /> */}
+        {/* <EmailForgotPassword /> */}
         {/* -------------------------------------------------- */}
 
         <div className="bg-white p-8 py-10 rounded-md">
@@ -67,7 +67,7 @@ const ForgotPassword = () => {
               </div>
             </div>
             <div>
-              {isLoading ? (
+              {isPending ? (
                 <div className="flex justify-center items-center w-full">
                   <FaCircle size={10} className=" animate-bounced" />
                 </div>

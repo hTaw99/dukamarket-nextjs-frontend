@@ -7,7 +7,7 @@ import ListItemSkeleton from "../../ListItem/ListItemSkeleton";
 import getQueryClient from "@/app/utils/getQueryClient";
 
 const SimilarProducts = async ({ productId, dehydratedState }) => {
-  // const { data: similarProducts, isLoading } = useGetSimilarProducts({
+  // const { data: similarProducts, isPending } = useGetSimilarProducts({
   //   productId,
   //   limit: 3,
   // });
@@ -47,7 +47,7 @@ const SimilarProducts = async ({ productId, dehydratedState }) => {
       <div className="sm:grid-cols-2 grid lg:flex xl:flex-col gap-4">
         {/* md:grid-rows-[repeat(3,minmax(150px,33%))] */}
 
-        {/* {isLoading
+        {/* {isPending
           ? Array.from({ length: 3 }, () => <ListItemSkeleton />)
           :  */}
         {similarProducts?.map((product) => (

@@ -1,5 +1,5 @@
 import { createSlice, current } from "@reduxjs/toolkit";
-import jwt_decode from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 
 const initialState = {
   status: "unknown",
@@ -24,12 +24,11 @@ const authSlice = createSlice({
       state.user.password = password;
       state.user.isAuthenticated = true;
       state.user.accessToken = accessToken;
-
       state.status = "logged_in";
     },
 
     setUserOnRefresh(state, { payload }) {
-      const { name, email, password } = jwt_decode(payload.accessToken);
+      const { name, email, password } = jwtDecode(payload.accessToken);
       state.user.name = name;
       state.user.email = email;
       state.user.password = password;

@@ -21,7 +21,7 @@ export const useGetAllReviews = (productId) => {
   });
 };
 
-export const useAddReview = () => {
+export const useAddReview = ({ onSettled }) => {
   const queryClient = useQueryClient();
   const axiosPrivate = useAxiosPrivate();
   return useMutation({
@@ -34,20 +34,22 @@ export const useAddReview = () => {
       return data;
     },
     onError: (err) => {},
-    onSuccess: (data) => {
-      queryClient.invalidateQueries({ queryKey: ["reviews"] });
-      queryClient.invalidateQueries({
-        queryKey: ["get-single-product", data.review.product],
-      });
-      // addReviewRevalidation();
-      // fetch(
-      //   `http://localhost:3000/api?tag=newArrival&path=/products/[productId]`
-      // );
-    },
+    // onSuccess: (data) => {
+    //   queryClient.invalidateQueries({ queryKey: ["reviews"] });
+    //   queryClient.invalidateQueries({
+    //     queryKey: ["get-single-product", data.review.product],
+    //   });
+    //   // addReviewRevalidation();
+    //   // fetch(
+    //   //   `http://localhost:3000/api?tag=newArrival&path=/products/[productId]`
+    //   // );
+    // },
+
+    onSettled,
   });
 };
 
-export const useDeleteReview = () => {
+export const useDeleteReview = ({ onSettled }) => {
   const queryClient = useQueryClient();
   const axiosPrivate = useAxiosPrivate();
   return useMutation({
@@ -61,7 +63,6 @@ export const useDeleteReview = () => {
     },
     onError: (err) => {},
     onSuccess: (data) => {
-      console.log({ data });
       queryClient.invalidateQueries({ queryKey: ["reviews"] });
       queryClient.invalidateQueries({
         queryKey: ["get-single-product"],
@@ -72,10 +73,11 @@ export const useDeleteReview = () => {
       // );
       // router.refresh();
     },
+    onSettled,
   });
 };
 
-export const useUpdateReview = () => {
+export const useUpdateReview = ({ onSettled }) => {
   const queryClient = useQueryClient();
   const axiosPrivate = useAxiosPrivate();
   const dispatch = useDispatch();
@@ -99,5 +101,6 @@ export const useUpdateReview = () => {
       //   `http://localhost:3000/api?tag=newArrival&path=/products/[productId]`
       // );
     },
+    onSettled,
   });
 };

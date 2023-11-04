@@ -8,7 +8,7 @@ import Email from "@/app/utils/Email";
 import { render } from "@react-email/render";
 
 const Signup = () => {
-  const { mutate: addUser, isLoading, isError, error } = useRegister();
+  const { mutate: addUser, isPending, isError, error } = useRegister();
   const errorMsg = error?.response?.data?.msg;
   const {
     register,
@@ -157,7 +157,7 @@ const Signup = () => {
             )}
 
             <div>
-              {isLoading ? (
+              {isPending ? (
                 <div className="flex justify-center items-center w-full">
                   <FaCircle size={10} className=" animate-bounced" />
                 </div>

@@ -24,7 +24,6 @@ const store = configureStore({
     compare: compareSlice,
     history: recentlyViewedProductsSlice,
     checkout: checkoutSlice,
-    
   },
 });
 

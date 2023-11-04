@@ -12,9 +12,8 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
-  const { mutate: loginUser, error, isError, isLoading } = useLogin();
+  const { mutate: loginUser, error, isError, isPending } = useLogin();
   const errorMsg = error?.response?.data?.msg;
-
 
   const onSubmit = (data) => {
     loginUser({ email: data.email, password: data.password });
@@ -57,7 +56,6 @@ const Login = () => {
             onSubmit={handleSubmit(onSubmit)}
           >
             <div className="rounded-md flex flex-col gap-4 ">
-              
               <div>
                 <label htmlFor="email-address" className="sr-only">
                   Email address
@@ -97,7 +95,7 @@ const Login = () => {
             </div>
 
             <div className="flex items-center justify-between">
-              <div className="flex items-center">
+              <div className="flex items-center gap-2">
                 <input
                   id="remember-me"
                   name="remember-me"
@@ -108,7 +106,7 @@ const Login = () => {
                   htmlFor="remember-me"
                   className="ltr:ml-2 rtl:mr-2 block text-sm capitalize text-gray-900"
                 >
-                  {"remember me"}
+                  remember me
                 </label>
               </div>
 
@@ -128,7 +126,7 @@ const Login = () => {
               </h1>
             )}
             <div>
-              {isLoading ? (
+              {isPending ? (
                 <div className="flex justify-center items-center w-full">
                   <FaCircle size={10} className=" animate-bounced" />
                 </div>

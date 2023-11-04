@@ -73,8 +73,8 @@ export function useRefreshToken({ enabled, onSuccess, onError }) {
     queryKey: ["refresh-token"],
     queryFn: refreshTokenFn,
     enabled,
-    onSuccess,
-    onError,
+    // onSuccess,
+    // onError,
   });
 }
 
@@ -91,10 +91,10 @@ export function useLogout() {
       return data;
     },
     enabled: false,
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["get-cart"] });
-      dispatch(logout());
-    },
+    // onSuccess: () => {
+    //   queryClient.invalidateQueries({ queryKey: ["get-cart"] });
+    //   dispatch(logout());
+    // },
   });
 }
 

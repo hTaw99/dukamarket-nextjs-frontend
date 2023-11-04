@@ -1,24 +1,28 @@
-// "use client";
-
 import Comment from "../Comment";
 import RatingStars from "@/app/utils/RatingStars";
-import { useGetAllReviews } from "@/apis/reviews";
-import ReviewForm from "../ReviewForm";
-import { useSelector } from "react-redux";
-import { useRouter, useSearchParams, usePathname } from "next/navigation";
-import Image from "next/image";
+import { getAllReviews } from "@/apis/reviews";
 import imgReview from "@/assets/noReviewsFound.svg";
-import { useGetSingleProduct } from "@/apis/products";
+import { getProduct } from "@/apis/products";
 import CustomImage from "@/app/utils/CustomImage";
+import ReviewFormWrapper from "../ReviewFormWrapper";
 
-const Reviews = ({ _id }) => {
-  const { data } = useGetAllReviews(_id);
-  const { data: product } = useGetSingleProduct(_id);
-  const { isAuthenticated } = useSelector((state) => state.auth.user);
-  const router = useRouter();
-  const pathname = usePathname();
+const Reviews = async ({ _id }) => {
+  const resReviews = await fetch(
+    `${process.env.SERVER}/api/reviews?product=${_id}`,
+    { next: { tags: ["reviews"] } }
+  );
+  const { reviews } = await resReviews.json();
 
-  const allRating = data?.reviews?.map((el) => el.rating);
+  const resProduct = await fetch(`${process.env.SERVER}/api/products/${_id}`, {
+    next: { tags: ["singleProduct"] },
+  });
+  const { product } = await resProduct.json();
+  // const { reviews } = await getAllReviews(_id);
+  // const { product } = await getProduct(_id);
+  // const { data } = useGetAllReviews(_id);
+  // const { data: product } = useGetSingleProduct(_id);
+
+  const allRating = reviews?.map((el) => el.rating);
   const ratingObj = allRating?.reduce(
     (acc, el, i) => ((acc[el] = acc[el] + 1 || 1), acc),
     {}
@@ -34,7 +38,8 @@ const Reviews = ({ _id }) => {
           <div className="flex gap-4 items-start mb-4">
             <div>
               <h1 className="md:text-lg text-neutral-700">
-                {product?.averageRating} <span className="">out of 5</span>{" "}
+                {product?.averageRating.toFixed(1)}
+                <span className="">out of 5</span>
               </h1>
               <h3 className="text-xs md:text-sm text-gray-500">
                 {product?.numReviews} Reviews
@@ -44,7 +49,6 @@ const Reviews = ({ _id }) => {
               <RatingStars size={24} averageRating={product?.averageRating} />
             </div>
           </div>
-
           {Array.from({ length: 5 }, (el, i) => (
             <div key={i} className="flex gap-4 items-center mb-2">
               <h3>{i + 1} star</h3>
@@ -72,21 +76,12 @@ const Reviews = ({ _id }) => {
             Share your thoughts with other customers
           </p>
         </div>
-        {isAuthenticated ? (
-          <ReviewForm _id={_id} />
-        ) : (
-          <button
-            onClick={() => router.push(`/login?from=${pathname}`)}
-            className="text-white bg-red-500 py-3 rounded-md self-stretch"
-          >
-            Add review
-          </button>
-        )}
+        <ReviewFormWrapper _id={_id} />
       </div>
 
       <div className="flex flex-col gap-6">
-        {/* {isLoading && <h1>Loading...</h1>} */}
-        {data?.reviews.length === 0 ? (
+        {/* {isPending && <h1>Loading...</h1>} */}
+        {reviews?.length === 0 ? (
           <div className="flex  flex-col h-full gap-4 justify-center items-center">
             <CustomImage
               width={500}
@@ -100,8 +95,8 @@ const Reviews = ({ _id }) => {
             </h1>
           </div>
         ) : (
-          data?.reviews?.map((review) => (
-            <Comment {...review} key={review._id} />
+          reviews?.map((review) => (
+            <Comment {...review} key={review._id} productId={_id} />
           ))
         )}
       </div>

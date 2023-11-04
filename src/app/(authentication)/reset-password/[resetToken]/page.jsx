@@ -6,7 +6,7 @@ import { FaCircle } from "react-icons/fa";
 
 const ResetPassword = ({ params }) => {
   const [password, setPassword] = useState("");
-  const { mutate: resetPassword, isLoading } = useResetPassword();
+  const { mutate: resetPassword, isPending } = useResetPassword();
   const { resetToken } = params;
 
   const submitHandler = (e) => {
@@ -65,7 +65,7 @@ const ResetPassword = ({ params }) => {
             </div>
             <div>
               {" "}
-              {isLoading ? (
+              {isPending ? (
                 <div className="flex justify-center items-center w-full">
                   <FaCircle size={10} className=" animate-bounced" />
                 </div>

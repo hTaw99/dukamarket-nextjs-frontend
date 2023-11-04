@@ -52,7 +52,7 @@ export const useGetProducts = (props) => {
 };
 // ######################### Get Single Product #########################
 
-async function getProduct(productId) {
+export async function getProduct(productId) {
   const { data } = await axiosDefault({
     url: `/products/${productId}`,
     method: "GET",

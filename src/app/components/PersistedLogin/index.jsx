@@ -12,21 +12,28 @@ export default function PersistLogin({ children }) {
   const dispatch = useDispatch();
   const [isLoading, setLoading] = useState(true);
 
-  const { fetchStatus } = useRefreshToken({
+  const { fetchStatus, data, error } = useRefreshToken({
     enabled: !isAuthenticated && status === "unknown",
-    onSuccess: (data) => {
-      dispatch(setUserOnRefresh(data));
-    },
-    onError: () => {
-      dispatch(logout());
-    },
+    // onSuccess: (data) => {
+    //   dispatch(setUserOnRefresh(data));
+    // },
+    // onError: () => {
+    //   dispatch(logout());
+    // },
   });
 
   useEffect(() => {
+    if (data) {
+      dispatch(setUserOnRefresh(data));
+    }
+    if (error) {
+      dispatch(logout());
+    }
+
     if (fetchStatus === "idle") {
       setLoading(false);
     }
-  }, [fetchStatus]);
+  }, [fetchStatus, data]);
 
   if (isLoading)
     return (

@@ -21,7 +21,7 @@ import AddressForm from "./AddressForm";
 const BillingAddress = () => {
   const { mutate: addAddress } = useCreateAddress();
   const { mutate: deleteAddress } = useDeleteAddress();
-  const { data, isLoading, isError, error } = useGetAddress();
+  const { data, isPending, isError, error } = useGetAddress();
 
   if (isError) {
     throw error;
@@ -40,7 +40,7 @@ const BillingAddress = () => {
           <h1 className="font-semibold">Billing and Shipping Address</h1>
         </div>
         <div className="p-8">
-          {isLoading ? (
+          {isPending ? (
             <div className="w-full flex justify-center items-center h-64">
               <FaCircle size={10} className=" animate-bounced text-gray-800" />
             </div>

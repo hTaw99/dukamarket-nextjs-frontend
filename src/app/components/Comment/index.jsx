@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { FiEdit } from "react-icons/fi";
 import {
@@ -12,6 +12,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useDeleteReview } from "@/apis/reviews";
 import { enableEditing } from "@/store/features/reviewSlice";
 import EditableComment from "./EditableComment";
+import { revalidateAction } from "@/actions/revalidateAction";
+import { useTransition } from "react";
 
 const Comment = ({
   comment,
@@ -21,12 +23,17 @@ const Comment = ({
   isRecommended,
   user,
   _id,
+  productId,
 }) => {
+  console.log(_id);
+  const [isPendingTransition, startTransition] = useTransition();
   const date = createdAt.split("T");
   const { name } = useSelector((state) => state.auth.user);
   const { isEditing } = useSelector((state) => state.review);
 
-  const { mutate: deleteReview, isLoading } = useDeleteReview();
+  const { mutate: deleteReview, isPending } = useDeleteReview({
+    onSettled: () => startTransition(() => revalidateAction(productId)),
+  });
   const dispatch = useDispatch();
 
   const isMyOwnReview = user?.name === name;
@@ -39,6 +46,7 @@ const Comment = ({
           rating={rating}
           title={title}
           isRecommended={isRecommended}
+          productId={productId}
           _id={_id}
         />
       );
@@ -48,7 +56,7 @@ const Comment = ({
   return (
     <div
       className={`flex items-start gap-2 border-b pb-4 px-4 rounded-md ${
-        isLoading ? "opacity-50" : ""
+        isPending ? "opacity-50" : ""
       }`}
     >
       <div className="w-full">
@@ -83,14 +91,19 @@ const Comment = ({
           {isMyOwnReview && (
             <div className="flex gap-2">
               <button
-                onClick={() => dispatch(enableEditing())}
+                onClick={() => {
+                  dispatch(enableEditing());
+                }}
                 className="flex text-sm gap-2 items-center px-2 py-3 md:px-4 md:py-2 rounded-md border border-neutral-300"
               >
                 <FiEdit />
                 Edit review
               </button>
               <button
-                onClick={() => deleteReview(_id)}
+                onClick={() => {
+                  deleteReview(_id);
+                  // startTransition(() => revalidateAction(productId));
+                }}
                 className="flex gap-2 text-sm items-center md:px-4 md:py-2 text-red-500  rounded-md "
               >
                 <AiOutlineDelete />

@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 const Confirmation = () => {
   const { myAddress } = useSelector((state) => state.checkout);
   const dispatch = useDispatch();
-  const { mutate: pay, isLoading } = usePay();
+  const { mutate: pay, isPending } = usePay();
 
   console.log("hellow from confirmation");
 
@@ -130,7 +130,7 @@ const Confirmation = () => {
               }}
               className="text-xs md:text-sm font-bold rounded-md bg-red-500 text-white py-2 px-4 uppercase "
             >
-              {isLoading ? (
+              {isPending ? (
                 <div className="flex justify-center items-center w-full">
                   <FaCircle size={10} className=" animate-bounced" />
                 </div>

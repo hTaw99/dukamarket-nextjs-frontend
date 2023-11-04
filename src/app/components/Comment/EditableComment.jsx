@@ -1,18 +1,29 @@
-import { useState } from "react";
+import { useState, useTransition } from "react";
 import { FaSpinner } from "react-icons/fa";
 import { disableEditing } from "@/store/features/reviewSlice";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { useUpdateReview } from "@/apis/reviews";
 import { useDispatch } from "react-redux";
+import { revalidateAction } from "@/actions/revalidateAction";
 
-const EditableComment = ({ comment, rating, title, isRecommended, _id }) => {
+const EditableComment = ({
+  comment,
+  rating,
+  title,
+  isRecommended,
+  _id,
+  productId,
+}) => {
+  const [isPending, startTransition] = useTransition();
   const [ratingEdit, setRatingEdit] = useState(rating);
   const [isRecommendedEdit, setIsRecommendedEdit] = useState(isRecommended);
   const dispatch = useDispatch();
   const [titleEdit, setTitleEdit] = useState(title);
   const [commentEdit, setCommentEdit] = useState(comment);
-  const { mutate: updateReview, isLoading: isUpdatingReviewLoading } =
-    useUpdateReview();
+  const { mutate: updateReview, isPending: isUpdatingReviewLoading } =
+    useUpdateReview({
+      onSettled: () => startTransition(() => revalidateAction(productId)),
+    });
 
   const updateHandler = () => {
     updateReview({

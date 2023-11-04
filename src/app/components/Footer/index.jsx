@@ -42,12 +42,12 @@ const Footer = () => {
             </p>
           </div> */}
           <div className="flex flex-col md:gap-6 gap-4">
-            <h2 className="text-base font-semibold">Need Help?</h2>
+            <h2 className="text-base font-semibold">Let's Talk</h2>
             <div>
               <div className="flex items-center gap-2 mb-2">
                 <FiHeadphones size={48} className="text-red-500" />
                 <div>
-                  <h3 className=" text-neutral-400">Got Question?</h3>
+                  <h3 className=" text-neutral-400">Phone number</h3>
                   <h2 className=" md:text-lg font-semibold text-red-500">
                     +02 0111 598 2393
                   </h2>

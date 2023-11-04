@@ -1,13 +1,26 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { IoHelpCircleOutline, IoLogOutOutline } from "react-icons/io5";
 import { AiOutlineUnorderedList } from "react-icons/ai";
 import { FiChevronDown } from "react-icons/fi";
 import { useLogout } from "@/apis/auth";
 import { BiUser } from "react-icons/bi";
+import { useDispatch } from "react-redux";
+import { logout } from "@/store/features/authSlice";
+import { useQueryClient } from "@tanstack/react-query";
 
 export default function AccountMenu({ name }) {
-  const { refetch: logoutUser } = useLogout();
+  const { refetch: logoutUser, data } = useLogout();
+  const queryClient = useQueryClient();
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (data) {
+      queryClient.invalidateQueries({ queryKey: ["get-cart"] });
+      dispatch(logout());
+    }
+  }, [data]);
 
   return (
     <Menu
@@ -17,7 +30,7 @@ export default function AccountMenu({ name }) {
       <div>
         <Menu.Button className="inline-flex flex-col items-center w-full text-sm text-white capitalize focus:outline-none">
           <h3 className="text-neutral-400 hidden md:block">Welcome</h3>
-          <BiUser size={24} className="md:hidden "/>
+          <BiUser size={24} className="md:hidden " />
           <div className="inline-flex items-center justify-center gap-1">
             <h2 className="capitalize text-xs md:text-sm">
               {name.split(" ")[0]}

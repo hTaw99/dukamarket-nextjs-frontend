@@ -2,10 +2,12 @@ import SimilarProducts from "../../components/singleProduct/similarProducts";
 import ProductDetail from "../../components/singleProduct/productDetails";
 import ProductDescription from "../../components/singleProduct/ProductDescription";
 import getQueryClient from "@/app/utils/getQueryClient";
-import { dehydrate } from "@tanstack/query-core";
-import { Hydrate } from "@tanstack/react-query";
+import { dehydrate } from "@tanstack/react-query";
+import { HydrationBoundary } from "@tanstack/react-query";
 import { getAllReviews } from "@/apis/reviews";
 import { axiosPrivate } from "@/apis/AppClient";
+import Reviews from "@/app/components/Reviews";
+import Description from "@/app/components/Description";
 
 // ####################################
 
@@ -30,7 +32,7 @@ export const generateStaticParams = async () => {
   }));
 };
 
-export const revalidate = 15;
+// export const revalidate = 15;
 
 // ####################################
 
@@ -41,35 +43,36 @@ const Product = async ({ params }) => {
   // const { product } = await res.json();
 
   const productQueryClient = getQueryClient();
-  const { product } = await productQueryClient.fetchQuery(
-    ["get-single-product", productId],
-    async () => {
+  const { product } = await productQueryClient.fetchQuery({
+    queryKey: ["get-single-product", productId],
+    queryFn: async () => {
       const { data } = await axiosPrivate({
         url: `/products/${productId}`,
         method: "GET",
       });
       return data;
-    }
-  );
+    },
+  });
   const productDehydratedState = dehydrate(productQueryClient);
 
   const queryClient = getQueryClient();
-  await queryClient.prefetchQuery(["reviews", productId], () =>
-    getAllReviews(productId)
-  );
+  await queryClient.prefetchQuery({
+    queryKey: ["reviews", productId],
+    queryFn: () => getAllReviews(productId),
+  });
   const dehydratedState = dehydrate(queryClient);
 
   return (
     <div className="container min-h-screen">
       <div className="grid grid-cols-1 xl:grid-cols-[5fr_2fr] w-full gap-4  mb-8">
         {/* Product */}
-        {/* {isLoading ? (
+        {/* {isPending ? (
           <SingleProductSkeleton />
         ) : ( */}
         <div className="bg-white p-8 rounded-md">
-          <Hydrate state={productDehydratedState}>
+          <HydrationBoundary state={productDehydratedState}>
             <ProductDetail _id={productId} />
-          </Hydrate>
+          </HydrationBoundary>
         </div>
         {/* )} */}
         {/* ---------Similar Products ----------------- */}
@@ -84,9 +87,12 @@ const Product = async ({ params }) => {
       </div>
 
       <div className="bg-white p-8 rounded-md">
-        <Hydrate state={dehydratedState}>
-          <ProductDescription {...product} />
-        </Hydrate>
+        {/* <HydrationBoundary state={dehydratedState}> */}
+        <ProductDescription>
+          <Reviews {...product} />
+          {/* <Description /> */}
+        </ProductDescription>
+        {/* </HydrationBoundary> */}
       </div>
     </div>
   );
