@@ -32,7 +32,7 @@ export const generateStaticParams = async () => {
   }));
 };
 
-// export const revalidate = 15;
+export const revalidate = 10;
 
 // ####################################
 
