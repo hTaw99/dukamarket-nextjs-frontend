@@ -42,14 +42,14 @@ const Product = async ({ params }) => {
   const resProduct = await fetch(
     `${process.env.SERVER}/api/products/${productId}`,
     {
-      next: { tags: ["singleProduct"] },
+      next: { tags: ["singleProduct"], revalidate: 10 },
     }
   );
   const { product } = await resProduct.json();
 
   const resReviews = await fetch(
     `${process.env.SERVER}/api/reviews?product=${productId}`,
-    { next: { tags: ["reviews"] } }
+    { next: { tags: ["reviews"], revalidate: 10 } }
   );
   const { reviews } = await resReviews.json();
 
