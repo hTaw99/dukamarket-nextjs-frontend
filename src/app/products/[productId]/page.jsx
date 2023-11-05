@@ -49,7 +49,7 @@ const Product = async ({ params }) => {
 
   const resReviews = await fetch(
     `${process.env.SERVER}/api/reviews?product=${productId}`,
-    { next: { tags: ["reviews"], revalidate: 10 } }
+    { next: { tags: ["reviews"] } }
   );
   const { reviews } = await resReviews.json();
 
