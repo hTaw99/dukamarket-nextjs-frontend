@@ -7,6 +7,6 @@ export const revalidateAction = async (id) => {
   unstable_noStore();
   // console.log(id);
   revalidatePath(`/products/[id]`);
-  // revalidateTag("singleProduct");
-  // revalidateTag("reviews");
+  revalidateTag("singleProduct");
+  revalidateTag("reviews");
 };
