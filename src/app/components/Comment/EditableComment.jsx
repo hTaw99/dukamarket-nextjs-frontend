@@ -22,7 +22,7 @@ const EditableComment = ({
   const [commentEdit, setCommentEdit] = useState(comment);
   const { mutate: updateReview, isPending: isUpdatingReviewLoading } =
     useUpdateReview({
-      onSettled: () => startTransition(() => revalidateAction(productId)),
+      onSettled: async () => await revalidateAction(productId),
     });
 
   const updateHandler = () => {

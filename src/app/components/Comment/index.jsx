@@ -31,7 +31,7 @@ const Comment = ({
   const { isEditing } = useSelector((state) => state.review);
 
   const { mutate: deleteReview, isPending } = useDeleteReview({
-    onSettled: () => startTransition(() => revalidateAction(productId)),
+    onSettled: async () => await revalidateAction(productId),
   });
   const dispatch = useDispatch();
 

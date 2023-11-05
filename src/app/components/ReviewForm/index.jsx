@@ -4,11 +4,15 @@ import { useState, useTransition } from "react";
 import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 import { FaCheck, FaCircle } from "react-icons/fa";
 import { useAddReview } from "@/apis/reviews";
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import { revalidateAction } from "@/actions/revalidateAction";
+import { addReview } from "@/actions/addReview";
+import useAxiosPrivate from "@/hooks/useAxiosPrivate";
+import { useSelector } from "react-redux";
 
 const ReviewForm = ({ productId }) => {
   const [isPendingTransition, startTransition] = useTransition();
+  const [result, setResult] = useState(null);
   // console.log(isPendingTransition);
   const [hover, setHover] = useState(null);
   const [rating, setRating] = useState(null);
@@ -24,12 +28,12 @@ const ReviewForm = ({ productId }) => {
     error,
     isPending,
   } = useAddReview({
-    onSettled: () => startTransition(() => revalidateAction(productId)),
+    onSettled: async () => await revalidateAction(productId),
     // onSettled: () => revalidateAction(productId),
   });
   const regPattern = new RegExp("true");
-
-  const onSubmit = (data) => {
+  // const { accessToken } = useSelector((state) => state.auth.user);
+  const onSubmit = async (data) => {
     addReview({
       rating: data.rating,
       comment: data.reviewComment,
@@ -37,6 +41,21 @@ const ReviewForm = ({ productId }) => {
       isRecommended: regPattern.test(data.recommended),
       product: productId,
     });
+    // const result = await addReview(
+    //   {
+    //     rating: data.rating,
+    //     comment: data.reviewComment,
+    //     title: data.reviewTitle,
+    //     isRecommended: regPattern.test(data.recommended),
+    //     product: productId,
+    //   },
+    //   accessToken
+    // );
+
+    // setResult(result);
+    // console.log(result);
+
+    // console.log(result);
   };
 
   return (
@@ -47,6 +66,8 @@ const ReviewForm = ({ productId }) => {
         </h1>
       )}
       <div className={error ? `opacity-50 pointer-events-none` : ""}>
+        {/* <p>{result?.msg}</p> */}
+        {/* <div className={false ? `opacity-50 pointer-events-none` : ""}> */}
         <div className="flex gap-2 text-gray-400 mb-1">
           {[...Array(5)].map((star, i) => {
             const ratingValue = i + 1;

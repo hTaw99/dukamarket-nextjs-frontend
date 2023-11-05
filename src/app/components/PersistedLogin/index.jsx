@@ -5,9 +5,15 @@ import { useRefreshToken } from "@/apis/auth";
 import { logout, setUserOnRefresh } from "@/store/features/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { FaCircle } from "react-icons/fa";
+import { jwtDecode } from "jwt-decode";
 
 export default function PersistLogin({ children }) {
-  const { isAuthenticated } = useSelector((state) => state.auth.user);
+  const { isAuthenticated } = useSelector(
+    (state) => state.auth.user
+  );
+
+  
+
   const { status } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const [isLoading, setLoading] = useState(true);
@@ -41,5 +47,5 @@ export default function PersistLogin({ children }) {
         <FaCircle size={10} className="text-gray-700 animate-bounced" />
       </div>
     );
-  return [children];
+  return children;
 }
