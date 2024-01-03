@@ -10,17 +10,17 @@ import { logout } from "@/store/features/authSlice";
 import { useQueryClient } from "@tanstack/react-query";
 
 export default function AccountMenu({ name }) {
-  const { refetch: logoutUser, data } = useLogout();
+  const { refetch: logoutUser, data, isFetching } = useLogout();
   const queryClient = useQueryClient();
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (data) {
+    if (isFetching) {
       queryClient.invalidateQueries({ queryKey: ["get-cart"] });
       dispatch(logout());
     }
-  }, [data]);
+  }, [isFetching]);
 
   return (
     <Menu

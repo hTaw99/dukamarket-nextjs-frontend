@@ -8,9 +8,10 @@ const CustomImage = ({ alt = "", ...props }) => {
       src={props.src}
       alt={alt}
       width={props.width}
+      priority
       height={props.height}
       className={`${props.className} opacity-0 duration-300 transition-all`}
-      onLoadingComplete={(img) => img?.classList?.remove("opacity-0")}
+      onLoad={(event) => event?.target?.classList?.remove("opacity-0")}
       placeholder={props.placeholder}
     />
   );

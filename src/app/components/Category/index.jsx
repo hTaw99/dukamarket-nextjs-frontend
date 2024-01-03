@@ -1,6 +1,6 @@
-import CardItem from "../../products/components/CardItem";
-import CategoryList from "./CategoryList";
-import CategoryProduct from "./CategoryProduct";
+import CardItem from "@/app/products/components/CardItem";
+import CategoryList from "@/app/components/Category/CategoryList";
+import CategoryProduct from "@/app/components/Category/CategoryProduct";
 
 const Category = async ({ _id, name, images }) => {
   // #################################
@@ -12,6 +12,7 @@ const Category = async ({ _id, name, images }) => {
 
   const topSellerProduct = products.slice(0, 1)[0];
   const restProducts = products.slice(1);
+
 
   return (
     <div className="mb-12">

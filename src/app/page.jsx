@@ -1,6 +1,6 @@
-import Category from "./components/Category";
-import Hero from "./components/Hero";
-import NewArrival from "./components/NewArrival";
+import Category from "@/app/components/Category";
+import Hero from "@/app/components/Hero";
+import NewArrival from "@/app/components/NewArrival";
 
 // export const dynamic = "force-dynamic";
 export const revalidate = 10;

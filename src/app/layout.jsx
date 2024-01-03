@@ -1,8 +1,8 @@
-import Header from "./components/Header";
-import Navbar from "./components/Navbar";
-import PersistLogin from "./components/PersistedLogin";
-import ProviderWrapper from "./components/Wrappers/Provider";
-import QueryClientProviderWrapper from "./components/Wrappers/QueryClientProvider";
+import Header from "@/app/components/Header";
+import Navbar from "@/app/components/Navbar";
+import PersistLogin from "@/app/components/PersistedLogin";
+import ProviderWrapper from "@/app/components/Wrappers/Provider";
+import QueryClientProviderWrapper from "@/app/components/Wrappers/QueryClientProvider";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import "./globals.css";
 import { Inter } from "next/font/google";
@@ -11,7 +11,7 @@ import QuickViewModel from "@/app/components/Models/QuickViewModel";
 import PictureModel from "@/app/components/Models/PictureModel";
 import CompareModel from "@/app/components/Models/CompareModel";
 import Footer from "@/app/components/Footer";
-import Topbar from "./components/Topbar";
+import Topbar from "@/app/components/Topbar";
 
 const inter = Inter({ subsets: ["latin"] });
 

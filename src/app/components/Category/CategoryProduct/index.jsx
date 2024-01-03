@@ -19,6 +19,7 @@ const CategoryProduct = ({
       <Link
         href={`/products/${_id}`}
         className="flex justify-center items-center w-52 h-52  aspect-square m-auto"
+        aria-label="Top seller product"
       >
         <CustomImage
           className="w-4/5 aspect-square cursor-pointer hover:scale-110"

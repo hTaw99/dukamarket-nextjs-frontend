@@ -1,13 +1,13 @@
 import SimilarProducts from "../../components/singleProduct/similarProducts";
 import ProductDetail from "../../components/singleProduct/productDetails";
-import ProductDescription from "../../components/singleProduct/ProductDescription";
+import SwitchTabs from "../../components/singleProduct/SwitchTabs";
 import getQueryClient from "@/app/utils/getQueryClient";
 import { dehydrate } from "@tanstack/react-query";
 import { HydrationBoundary } from "@tanstack/react-query";
 import { getAllReviews } from "@/apis/reviews";
 import { axiosPrivate } from "@/apis/AppClient";
 import Reviews from "@/app/components/Reviews";
-import Description from "@/app/components/Description";
+import { Suspense } from "react";
 
 // ####################################
 
@@ -47,11 +47,11 @@ const Product = async ({ params }) => {
   );
   const { product } = await resProduct.json();
 
-  const resReviews = await fetch(
-    `${process.env.SERVER}/api/reviews?product=${productId}`,
-    { next: { tags: ["reviews"] } }
-  );
-  const { reviews } = await resReviews.json();
+  //  const resReviews = await fetch(
+  //   `${process.env.SERVER}/api/reviews?product=${productId}`,
+  //   { next: { tags: ["reviews"] } }
+  // );
+  // const { reviews } = await resReviews.json();
 
   // ################################
   // const productQueryClient = getQueryClient();
@@ -88,9 +88,9 @@ const Product = async ({ params }) => {
       </div>
 
       <div className="bg-white p-8 rounded-md">
-        <ProductDescription>
-          <Reviews product={product} productId={productId} reviews={reviews} />
-        </ProductDescription>
+        <SwitchTabs>
+            <Reviews productId={productId} />
+        </SwitchTabs>
       </div>
     </div>
   );

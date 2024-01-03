@@ -5,6 +5,7 @@ import useDebounce from "@/hooks/useDebounce";
 import { clearHistory } from "@/store/features/recentlyViewedProductsSlice";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { ImSpinner8 } from "react-icons/im";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function SearchBar() {

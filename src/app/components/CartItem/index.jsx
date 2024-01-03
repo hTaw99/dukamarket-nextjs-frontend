@@ -12,7 +12,7 @@ const CartItem = ({ amount, product, totalProductPrice, _id }) => {
     <div className=" p-4 pb-8 border-b border-gray-300 rounded-md flex gap-4">
       <div className="max-w-[150px] flex items-center justify-center self-start border rounded-md">
         <CustomImage
-          src={product.images[0]}
+          src={product?.images?.[0]}
           width={500}
           height={500}
           className="object-cover p-2 max-w-[90%]"

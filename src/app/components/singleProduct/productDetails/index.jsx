@@ -31,6 +31,7 @@ const ProductDetail = ({
 }) => {
   const [amount, setAmount] = useState(1);
 
+  
   // const { data: product } = useGetSingleProduct(_id);
   const [colorChoosed, setColorChoosed] = useState(colors?.[0]?.name);
 

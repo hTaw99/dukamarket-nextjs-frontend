@@ -10,6 +10,14 @@ export default function ReviewFormWrapper({ productId }) {
   const pathname = usePathname();
   return (
     <>
+      <div className="flex flex-col gap-1 mb-4 ">
+        <h1 className="text-lg md:text-xl text-gray-700 font-semibold">
+          Review this product
+        </h1>
+        <p className="text-sm md:text-base">
+          Share your thoughts with other customers
+        </p>
+      </div>
       {isAuthenticated ? (
         <ReviewForm productId={productId} />
       ) : (

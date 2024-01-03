@@ -8,7 +8,7 @@ import {
 } from "@/store/features/productDetailSlice";
 // import { Hydrate, useQuery } from "@tanstack/react-query";
 
-const ProductDescription = ({ averageRating, numReviews, _id, children }) => {
+const SwitchTabs = ({ averageRating, numReviews, _id, children }) => {
   const dispatch = useDispatch();
   const { tapValue } = useSelector((state) => state.detail);
   return (
@@ -40,4 +40,4 @@ const ProductDescription = ({ averageRating, numReviews, _id, children }) => {
   );
 };
 
-export default ProductDescription;
+export default SwitchTabs;

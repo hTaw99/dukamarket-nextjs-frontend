@@ -2,7 +2,7 @@ import mobile from "@/assets/mobile.jpg";
 import mobile2 from "@/assets/img-11.jpg";
 import mobile3 from "@/assets/img-9.jpg";
 import Link from "next/link";
-import HeroWrapper from "../Wrappers/HeroWrapper";
+import HeroWrapper from "@/app/components/Wrappers/HeroWrapper";
 import CustomImage from "@/app/utils/CustomImage";
 const Hero = () => {
   return (
